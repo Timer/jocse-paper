@@ -78,7 +78,6 @@ Restricting the parent ordering, however, creates an issue of bias, which is inh
 Sriram @sriram proposed a solution to this issue by creating a consensus network, or the combination of multiple Bayesian networks derived from several topological inputs.
 Here, a topology refers to a hierarchical structure of parenthood that the K2 algorithm will utilize to reduce overall computational complexity while scoring data relationships.
 To eliminate the bias created by these restraints, many randomly generated topologies are used. By increasing the number of topological inputs, the consensus network has a greater chance of reflecting the true nature of the gene interactions with higher levels of confidence.
-However, with a larger number of topological inputs comes a larger search space, resulting in a greater time complexity.
 
 ## OpenMP
 
