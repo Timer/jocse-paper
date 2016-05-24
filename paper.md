@@ -70,12 +70,14 @@ This project examines the value of Bayesian network learning within a parallel e
 This examination is performed through implementation of said algorithm, utilizing various methods available such as OpenMP, MPI, and CUDA.
 
 ## Bayesian Networks
-Bayesian networks are directed acyclic graphs (DAGs) that can be used to capture qualitative relationships among variables. Within the DAG, nodes represent the variables and edges represent dependencies between variables @korb @pearl.
-One complication with Bayesian network learning is that the search space will grow exponentially without placing restrictions on the structure of the network.
-The K2 algorithm reduces the computational cost of learning by imposing restraints on parent node connections via topological ordering @cooper. An issue with this restriction is the bias inherent within a constraint-based search space reduction.
-Sriram @sriram proposed a solution to this issue by creating a consensus network, the combination of multiple Bayesian networks derived from several topological inputs which helps to reduce bias.
+Bayesian networks capture qualitative relationships among variables within directed acyclic graphs (or DAGS).
+Nodes within the DAG represent variables, and edges represent dependencies between said variables @korb @pearl.
+Bayesian networks have a search space which grows exponentially when introducing new data and not placing restrictions on the structure of the network.
+This complication can be overcome by using the K2 algorithm. The K2 algorithm reduces the computational cost of learning by imposing restraints on parent node connections via topological ordering @cooper.
+Restricting the parent ordering, however, creates an issue of bias, which is inherent within a constraint-based search space reduction.
+Sriram @sriram proposed a solution to this issue by creating a consensus network, or the combination of multiple Bayesian networks derived from several topological inputs.
 Here, a topology refers to a hierarchical structure of parenthood that the K2 algorithm will utilize to reduce overall computational complexity while scoring data relationships.
-To eliminate bias created by this practice, many randomly generated topologies are used. By increasing the number of topological inputs, the consensus network has a greater chance of reflecting the true nature of the gene interactions.
+To eliminate the bias created by these restraints, many randomly generated topologies are used. By increasing the number of topological inputs, the consensus network has a greater chance of reflecting the true nature of the gene interactions with higher levels of confidence.
 However, with a larger number of topological inputs comes a larger search space, resulting in a greater time complexity.
 
 ## OpenMP
