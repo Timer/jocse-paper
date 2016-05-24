@@ -1,0 +1,100 @@
+---
+title: "STUDENT PAPER: An Implementation of Parallel Bayesian Network Learning"
+author:
+  - Joseph Haddad
+  - Anthony Deeter
+  - Zhong-Hui Duan
+  - Timothy W. O'Neil
+tags: [Computing]
+abstract: |
+  this is a short abstract
+references:
+  - id: cooper
+    title: A Bayesian method for the induction of probabilistic networks from data
+    container-title: Machine Learning
+    issued:
+      year: 1992
+    volume: 9
+    issue: 4
+    page: 309-347
+    author:
+      - given: Gregory F.
+        family: Cooper
+      - given: Edward
+        family: Herskovits
+    type: article-journal
+  - id: sriram
+    title: Predicting Gene Relations Using Bayesian Networks
+    issued:
+      year: 2011
+    school: Department of Computer Science, University of Akron
+    author:
+      - given: Aparna
+        family: Sriram
+    type: thesis
+  - id: pearl
+    type: book
+    title: Probabilistic inference in intelligent systems
+    issued:
+      year: 1998
+    publisher: Morgan Kaufmann Publishers
+    author:
+      - given: Judea
+        family: Pearl
+  - id: korb
+    type: book
+    publisher: Chapman and Hall/CRC
+    title: Bayesian artificial intelligence
+    issued:
+      year: 2003
+    author:
+      - given: Kevin
+        family: Korb
+      - given: Ann
+        family: Nicholson
+---
+
+**Student papers should summarize the purpose and results of a computational science project undertaken by one or more students. Those papers should describe the project in terms of the underlying science and engineering principles and the nature of the problem, the approach taken to solve that problem, and project results. Student papers should also reflect on the experience including such things as project organization, challenges, and solutions as well as the impact of the project on the students’ education and career outlook.**
+
+# Introduction
+Inferring relations among genes requires a significant amount of data.
+Bayesian networks may be used to correlate this data and extract relationships among the genes. We do not know what this relationship is, but we know it has a high likelihood of existing.
+These interactions can then be used to make testable hypotheses to determine how gene interactions influence life in organisms or humans. As a result, tests can be performed in the lab with more confidence and a reduced chance of wasting time and resources.
+Bayesian network learning, however, is inherently slow because it is an NP-hard algorithm @cooper. To reduce the computational complexity, search space reduction algorithms may be utilized.
+K2 is a great example of a search space reduction algorithm, but introduces a new problem. K2 restricts the parent hierarchy of genes within the graph, and thus introduces bias in the computed relations.
+To achieve high confidence in the generated networks, an abundance of Bayesian networks need to be computed using random search space restrictions. These random search space restrictions remove the bias and provide results which can be interpreted at various levels of confidence @sriram.
+By eliminating one problem and introducing another, we have enabled the ability of parallelization by requiring multiple units of work rather than just one faster unit of work.
+Other authors describe parallel implementations that can increase the speed of Bayesian network learning (cite).
+However, no libraries exist which compute multiple Bayesian networks concurrently.
+This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
+This examination is performed through implementation of said algorithm, utilizing various methods available such as OpenMP, MPI, and CUDA.
+
+## Bayesian Networks
+Bayesian networks are directed acyclic graphs (DAGs) that can be used to capture qualitative relationships among variables. Within the DAG, nodes represent the variables and edges represent dependencies between variables @korb @pearl.
+One complication with Bayesian network learning is that the search space will grow exponentially without placing restrictions on the structure of the network.
+The K2 algorithm reduces the computational cost of learning by imposing restraints on parent node connections via topological ordering @cooper. An issue with this restriction is the bias inherent within a constraint-based search space reduction.
+Sriram @sriram proposed a solution to this issue by creating a consensus network, the combination of multiple Bayesian networks derived from several topological inputs which helps to reduce bias.
+Here, a topology refers to a hierarchical structure of parenthood that the K2 algorithm will utilize to reduce overall computational complexity while scoring data relationships.
+To eliminate bias created by this practice, many randomly generated topologies are used. By increasing the number of topological inputs, the consensus network has a greater chance of reflecting the true nature of the gene interactions.
+However, with a larger number of topological inputs comes a larger search space, resulting in a greater time complexity.
+
+## OpenMP
+
+## MPI
+
+## CUDA
+
+# Methodology
+## Processors
+## Nodes
+
+# Results and Discussion
+## Processors
+## Nodes
+
+# Conclusion
+
+# Acknowledgments
+This research is part of the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications.
+
+# References
