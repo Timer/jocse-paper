@@ -60,6 +60,10 @@ references:
     type: webpage
     title: About the OpenMP ARB and OpenMP.org
     URL: http://openmp.org/wp/about-openmp/
+  - id: mpispec
+    type: webpage
+    title: MPI: A Message-Passing Interface Standard
+    URL: http://www.mpi-forum.org/docs/mpi-3.0/mpi30-report.pdf
 ---
 
 **Describe the approach taken to solve the problem and project results.
@@ -89,7 +93,7 @@ Here, a topology refers to a hierarchical structure of parenthood that the K2 al
 To eliminate the bias created by these restraints, many randomly generated topologies are used. By increasing the number of topological inputs, the consensus network has a greater chance of reflecting the true nature of the gene interactions with higher levels of confidence.
 
 ## OpenMP
-OpenMP, or **O**pen **M**ulti-**P**rocessing, is a cross-platform, multilingual application programming interface (API) which enables parallel code portability. OpenMP consists of compiler directives and library functions which alter (parallelize) the execution of a program @openmpapi. In a nutshell, OpenMP provides means of distributing code (namely loops) across multiple threads.
+OpenMP (or **O**pen **M**ulti-**P**rocessing) is a cross-platform, multilingual application programming interface (API) which enables parallel code portability. OpenMP consists of compiler directives and library functions which alter (parallelize) the execution of a program @openmpapi. In a nutshell, OpenMP provides means of distributing code (namely loops) across multiple threads.
 An advisory board of top entities in computation controls its well-defined specification which can be implemented by various compilers to target specific system capabilities @openmpboard. This allows functionality on a wide range of processor architectures and operating systems.
 The specification includes language-specific APIs, compiler directives, and standardized environment variables @openmpapi.
 The model of OpenMP is comparable to the fork-join model, but provides convenience (cross-platform) features through compiler directives. These directives consist of, but are not limited to, barriers, critical regions, variable atomicity, shared/private memory, and reductions @openmpapi.
@@ -97,6 +101,7 @@ The model of OpenMP is comparable to the fork-join model, but provides convenien
 TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout.
 
 ## MPI
+MPI (or **M**essage **P**assing **I**nterface) is a standard which defines network-routed (a)synchronous message passing @mpispec. Execution of an MPI-enabled program is orchestrated by an executor which forwards appropriate arguments to each node or process in order to inter-network said processes. A library is used to augment the program arguments and create the network, providing a clean API for determining rank/role, and sharing memory between nodes. Fault tolerance and concurrency are implemented by the user on a per-case basis, as message sending and receiving is either blocking or asynchronous @mpispec. MPI is most beneficial when parallelizing code across multiple machines. It should be avoided for spanning computation across multiple cores because it introduces networking overhead. This overhead is not present within solutions such as OpenMP.
 
 ## CUDA
 
