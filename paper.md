@@ -54,7 +54,8 @@ references:
         family: Nicholson
 ---
 
-**Student papers should summarize the purpose and results of a computational science project undertaken by one or more students. Those papers should describe the project in terms of the underlying science and engineering principles and the nature of the problem, the approach taken to solve that problem, and project results. Student papers should also reflect on the experience including such things as project organization, challenges, and solutions as well as the impact of the project on the students’ education and career outlook.**
+**Describe the approach taken to solve the problem and project results.
+Student papers should also reflect on the experience including such things as project organization, challenges, and solutions as well as the impact of the project on the students’ education and career outlook.**
 
 # Introduction
 Inferring relations among genes requires a significant amount of data.
