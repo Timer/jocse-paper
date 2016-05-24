@@ -62,8 +62,8 @@ references:
     URL: http://openmp.org/wp/about-openmp/
   - id: mpispec
     type: webpage
-    title: MPI: A Message-Passing Interface Standard
-    URL: http://www.mpi-forum.org/docs/mpi-3.0/mpi30-report.pdf
+    title: "MPI: A Message-Passing Interface Standard"
+    URL: "http://www.mpi-forum.org/docs/mpi-3.0/mpi30-report.pdf"
 ---
 
 **Describe the approach taken to solve the problem and project results.
