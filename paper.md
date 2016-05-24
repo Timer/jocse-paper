@@ -52,6 +52,14 @@ references:
         family: Korb
       - given: Ann
         family: Nicholson
+  - id: openmpapi
+    type: webpage
+    title: OpenMP Application Program Interface
+    URL: http://www.openmp.org/mp-documents/OpenMP4.0.0.pdf
+  - id: openmpboard
+    type: webpage
+    title: About the OpenMP ARB and OpenMP.org
+    URL: http://openmp.org/wp/about-openmp/
 ---
 
 **Describe the approach taken to solve the problem and project results.
@@ -81,6 +89,12 @@ Here, a topology refers to a hierarchical structure of parenthood that the K2 al
 To eliminate the bias created by these restraints, many randomly generated topologies are used. By increasing the number of topological inputs, the consensus network has a greater chance of reflecting the true nature of the gene interactions with higher levels of confidence.
 
 ## OpenMP
+OpenMP, or (Open Multi-Processing), is a cross-platform, multilingual application programming interface (API) which enables parallel code portability. OpenMP consists of compiler directives and library functions which alter (parallelize) the execution of a program @openmpapi. In a nutshell, OpenMP provides means of distributing code (namely loops) across multiple threads.
+An advisory board of top entities in computation controls its well-defined specification which can be implemented by various compilers to target specific system capabilities @openmpboard. This allows functionality on a wide range of processor architectures and operating systems.
+The specification includes language-specific APIs, compiler directives, and standardized environment variables @openmpapi.
+The model of OpenMP is comparable to the fork-join model, but provides convenience (cross-platform) features through compiler directives. These directives consist of, but are not limited to, barriers, critical regions, variable atomicity, shared/private memory, and reductions @openmpapi.
+
+TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout.
 
 ## MPI
 
