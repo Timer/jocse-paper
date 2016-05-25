@@ -103,7 +103,7 @@ OpenMP by nature allows simple, straight-forward, parallelization of loops with 
 Without this library, the program would have to include many different libraries and routines to achieve parallel code across different systems. The result of this would be a program which only works on a specific set of machines, or a code base which is hard to maintain and debug when changes are made to the underlying concurrent workings.
 
 ## MPI
-MPI (or **M**essage **P**assing **I**nterface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. The execution of a program which implements MPI must be orchestrated by an executor. The executor forwards appropriate arguments to each machine in order to specify the methods for the machines to talk to one another. The MPI library is used to augment the program arguments upon execution and restore the arguments to what was forwarded to the program traditionally. The augmented arguments are then used to determine rank/role through a clean API and lays the foundation to share memory between the nodes.
+MPI (or **M**essage **P**assing **I**nterface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. The execution of a program which implements MPI must be orchestrated by an executor. The executor forwards appropriate arguments to each machine in order to specify the methods for the machines to talk to one another. The MPI library is used to augment the program arguments upon execution and restore the arguments to what was forwarded to the program traditionally. The augmented arguments are then used to determine rank/role through a clean API and lays the foundation to share memory between the machines.
 Fault tolerance and concurrency are implemented by the user on a per-case basis, as message sending and receiving is either blocking or asynchronous @mpispec.
 MPI is most beneficial when parallelizing code across multiple machines. It should be avoided for spanning computation across multiple cores because it introduces networking overhead which is unnecessary when a solution such as OpenMP should be used.
 
@@ -140,20 +140,21 @@ The previous parallelization was reversed as it was determined that parallelizin
 
 To measure the resulting computational runtime decrease, multiple tests were performed with varying number of processors.
 A single set of synthetic data was used which consisted of **10** genes and **10,000** samples.
-Using an exclusively reserved node, tests were run by varying the number of processors (up to 32) and measuring the algorithm performance for the creation of **160** Bayesian networks per gene (**1600** total).
-We have reached the resource limits on the systems which we have access to, and cannot test beyond 32 cores. The selection of 10 genes and 160 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
+Using an exclusively reserved machine, tests were run by varying the number of processors (up to 32) and measuring the algorithm performance for the creation of **160** Bayesian networks per gene (**1600** total).
+We have reached the resource limits on the systems which we have access to, and cannot test beyond **32** cores. The selection of 10 genes and 160 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
-## Nodes
+## Machines
 TODO: explain how OpenMP not applicable
 TODO: explain how MPI is applicable
-TODO: explain how nodes were tested
+
+Tests were conducted to measure the impact on runtime when multiple machines were used. The same data was used from the `Processors` test. Tests were run on dedicated machines utilizing **16** processors and computing **60** Bayesian networks per gene (**600** total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
 # Results and Discussion
 ## Processors
 TODO: results of processor scaling
 TODO: potential of cuda with rearchitecting
 
-## Nodes
+## Machines
 TODO: results of node scaling
 
 # Conclusion
