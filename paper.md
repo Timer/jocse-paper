@@ -106,6 +106,10 @@ MPI is most beneficial when parallelizing code across multiple machines. It shou
 TODO: overview of cuda
 
 # Methodology
+Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a Nvidia K20X GPU.
+
+Cray XE6 machines were used to perform all tests utilizing purely synthetic data. OpenMP and MPI were implemented by the Cray Compiler, Cray C version 8.3.10.
+
 ## Processors
 The first natural step to parallelizing computation is to inspect utilizing multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple cores.
 Analyzing the program reveals a handful of potential places for parallelization. There are many loops which perform actions which are independent from one another, such as matrix calculations.
