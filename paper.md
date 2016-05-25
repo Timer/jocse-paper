@@ -158,11 +158,34 @@ The master machine then saves the consensus network to the disk and completes an
 Tests were conducted to measure the impact on runtime when multiple machines were used. The same data was used from the `Processors` test. Tests were run on dedicated machines utilizing **16** processors and computing **60** Bayesian networks per gene (**600** total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
 # Results and Discussion
+In the following tables, the standard deviation is represented by the letter `s` and the standard error is denoted by `se`.
+
 ## Processors
+Cores | Mean Time | _s_ | _se_
+--- | --- | --- | ---
+1 | 396.348 | 3.192 | 1.427
+2 | 269.023 | 0.530 | 0.237
+4 | 137.359 | 0.629 | 0.281
+8 | 76.169 | 0.220 | 0.090
+16 | 40.359 | 0.307 | 0.137
+32 | 22.172 | 0.144 | 0.064
 TODO: results of processor scaling
 TODO: potential of cuda with rearchitecting
 
 ## Machines
+Nodes | Mean Time | _s_ | _se_
+--- | --- | --- | ---
+1 | 102.204 | 0.361 | 0.161
+2 | 53.451 | 0.272 | 0.122
+4 | 28.656 | 0.383 | 0.171
+8 | 17.8 | 1.812 | 0.810
+16 | 10.917 | 0.327 | 0.134
+32 | 7.862 | 0.462 | 0.207
+64 | 6.259 | 0.444 | 0.198
+128 | 6.739 | 0.430 | 0.193
+256 | 7.904 | 1.110 | 0.496
+512 | 7.241 | 0.246 | 0.110
+1024 | 8.845 | 1.105 | 0.494
 TODO: results of node scaling
 
 # Conclusion
