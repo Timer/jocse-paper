@@ -2,8 +2,6 @@
 title: "STUDENT PAPER: An Implementation of Parallel Bayesian Network Learning"
 author:
   - Joseph Haddad
-  - Anthony Deeter
-  - Zhong-Hui Duan
   - Timothy W. O'Neil
 tags: [Computing]
 abstract: |
