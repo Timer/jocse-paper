@@ -127,6 +127,7 @@ Implementation of this parallelization is straight-forward as Bayesian network c
 #pragma omp parallel for
 for (...) { }
 ```
+The previous parallelization was reversed as it was determined that parallelizing a single instruction (e.g. multiplication, addition) was detrimental to the scheduling of threads responsible for computing an individual Bayesian network.
 
 TODO: explain how processors were tested
 
