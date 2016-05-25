@@ -101,7 +101,9 @@ The model of OpenMP is comparable to the fork-join model, but provides convenien
 TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout.
 
 ## MPI
-MPI (or **M**essage **P**assing **I**nterface) is a standard which defines network-routed (a)synchronous message passing @mpispec. Execution of an MPI-enabled program is orchestrated by an executor which forwards appropriate arguments to each node or process in order to inter-network said processes. A library is used to augment the program arguments and create the network, providing a clean API for determining rank/role, and sharing memory between nodes. Fault tolerance and concurrency are implemented by the user on a per-case basis, as message sending and receiving is either blocking or asynchronous @mpispec. MPI is most beneficial when parallelizing code across multiple machines. It should be avoided for spanning computation across multiple cores because it introduces networking overhead. This overhead is not present within solutions such as OpenMP.
+MPI (or **M**essage **P**assing **I**nterface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. The execution of a program which implements MPI must be orchestrated by an executor. The executor forwards appropriate arguments to each machine in order to specify the methods for the machines to talk to one another. The MPI library is used to augment the program arguments upon execution and restore the arguments to what was forwarded to the program traditionally. The augmented arguments are then used to determine rank/role through a clean API and lays the foundation to share memory between the nodes.
+Fault tolerance and concurrency are implemented by the user on a per-case basis, as message sending and receiving is either blocking or asynchronous @mpispec.
+MPI is most beneficial when parallelizing code across multiple machines. It should be avoided for spanning computation across multiple cores because it introduces networking overhead which is unnecessary when a solution such as OpenMP should be used.
 
 ## CUDA
 
