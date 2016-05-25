@@ -105,11 +105,13 @@ Fault tolerance and concurrency are implemented by the user on a per-case basis,
 MPI is most beneficial when parallelizing code across multiple machines. It should be avoided for spanning computation across multiple cores because it introduces networking overhead which is unnecessary when a solution such as OpenMP should be used.
 
 ## CUDA
+TODO: overview of cuda
 
 # Methodology
 ## Processors
 TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout.
 TODO: explain why MPI was not used
+TODO: explain why cuda not applicable
 TODO: explain how processors were tested
 
 ## Nodes
@@ -120,11 +122,13 @@ TODO: explain how nodes were tested
 # Results and Discussion
 ## Processors
 TODO: results of processor scaling
+TODO: potential of cuda with rearchitecting
 
 ## Nodes
 TODO: results of node scaling
 
 # Conclusion
+TODO: conclude results
 TODO: reflect on the experience including such things as project organization, challenges, and solutions as well as the impact of the project on the students’ education and career outlook
 
 # Acknowledgments
