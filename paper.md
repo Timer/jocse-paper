@@ -102,6 +102,8 @@ OpenMP enables parallel code portability at a level which would not be achievabl
 OpenMP by nature allows simple, straight-forward, parallelization of loops with simple compiler directives that targets the system the program is compiled on.
 Without this library, the program would have to include many different libraries and routines to achieve parallel code across different systems. The result of this would be a program which only works on a specific set of machines, or a code base which is hard to maintain and debug when changes are made to the underlying concurrent workings.
 
+TODO: explain kernel scheduling and OS etc and potential overhead
+
 ## MPI
 MPI (or **M**essage **P**assing **I**nterface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. The execution of a program which implements MPI must be orchestrated by an executor. The executor forwards appropriate arguments to each machine in order to specify the methods for the machines to talk to one another. The MPI library is used to augment the program arguments upon execution and restore the arguments to what was forwarded to the program traditionally. The augmented arguments are then used to determine rank/role through a clean API and lays the foundation to share memory between the machines.
 Fault tolerance and concurrency are implemented by the user on a per-case basis, as message sending and receiving is either blocking or asynchronous @mpispec.
