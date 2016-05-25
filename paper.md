@@ -109,11 +109,11 @@ TODO: overview of cuda
 
 # Methodology
 ## Processors
-TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout
-The first natural step to parallelizing computation is to inspect utilizing multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple cores. Analyzing
+The first natural step to parallelizing computation is to inspect utilizing multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple cores.
+Analyzing the program reveals a handful of potential places for parallelization. There are many loops which perform actions which are independent from one another, such as matrix calculations.
+Operations like these tend to lend themselves best to CUDA, however, due to the way the matrices are architected, CUDA may not be applied. Matrices in the program consist of a 2-dimensional array of pointers instead of a primitive data type. Because of this, each pointer must be resolved before being copied to the CUDA card which effectively removes all the benefit of using CUDA in the first place.
 
 TODO: explain why MPI was not used
-TODO: explain why cuda not applicable
 TODO: explain how processors were tested
 
 ## Nodes
