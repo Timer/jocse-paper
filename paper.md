@@ -161,34 +161,15 @@ Tests were conducted to measure the impact on runtime when multiple machines wer
 In the following tables, the standard deviation is represented by the letter `s` and the standard error is denoted by `se`.
 
 ## Processors
-
-Cores | Mean Time | _s_ | _se_
---- | --- | --- | ---
-1 | 396.348 | 3.192 | 1.427
-2 | 269.023 | 0.530 | 0.237
-4 | 137.359 | 0.629 | 0.281
-8 | 76.169 | 0.220 | 0.090
-16 | 40.359 | 0.307 | 0.137
-32 | 22.172 | 0.144 | 0.064
+![](http://puu.sh/p4ZJl/0f5491d49c.png)
+![](http://puu.sh/p4XJm/28269345c4.png)
 
 TODO: results of processor scaling
 TODO: potential of cuda with rearchitecting
 
 ## Machines
-
-Nodes | Mean Time | _s_ | _se_
---- | --- | --- | ---
-1 | 102.204 | 0.361 | 0.161
-2 | 53.451 | 0.272 | 0.122
-4 | 28.656 | 0.383 | 0.171
-8 | 17.8 | 1.812 | 0.810
-16 | 10.917 | 0.327 | 0.134
-32 | 7.862 | 0.462 | 0.207
-64 | 6.259 | 0.444 | 0.198
-128 | 6.739 | 0.430 | 0.193
-256 | 7.904 | 1.110 | 0.496
-512 | 7.241 | 0.246 | 0.110
-1024 | 8.845 | 1.105 | 0.494
+![](http://puu.sh/p4ZJS/385ceeb7f6.png)
+![](http://puu.sh/p4XMG/bbdeb91a8c.png)
 
 TODO: results of node scaling
 
