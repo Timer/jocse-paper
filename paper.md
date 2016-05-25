@@ -117,9 +117,17 @@ Since CUDA could not be utilized, OpenMP and MPI were the remaining two options.
 OpenMP, however, would work perfectly for this use case. OpenMP was implemented with a simple compiler directive which sped up computation.
 ```c++
 #pragma omp parallel for
+for (...) { }
+```
+Additionally, other opportunities were inspected for parallelization. The next one which jumped out was the creation of a network for each individual topology.
+The creation of Bayesian networks are independent from one another, and thus, networks can be asynchronously generated on the same data set.
+CUDA does not lend itself well to this use case because it is not performing strictly arithmetic operations. Similarly to above, using MPI would be a waste of resources which leaves the best candidate again being OpenMP.
+Implementation of this parallelization is straight-forward as Bayesian network computation does not mutate its data set. This prevents us from having to replicate the memory and increase the space complexity of the algorithm. OpenMP was implemented again with a simple compiler directive.
+```c++
+#pragma omp parallel for
+for (...) { }
 ```
 
-TODO: explain why MPI was not used
 TODO: explain how processors were tested
 
 ## Nodes
