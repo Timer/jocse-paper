@@ -62,6 +62,11 @@ references:
     type: webpage
     title: "MPI: A Message-Passing Interface Standard"
     URL: "http://www.mpi-forum.org/docs/mpi-3.0/mpi30-report.pdf"
+  - id: bwinfo
+    type: webpage
+    title: "Lessons Learned From the Analysis of System Failures at Petascale: The Case of Blue Waters"
+    institution: "University of Illinois at Urbana-Champaign"
+    URL: "https://courses.engr.illinois.edu/ece542/sp2014/finalexam/papers/bluewaters.pdf"
 ---
 
 # Introduction
@@ -106,7 +111,7 @@ MPI is most beneficial when parallelizing code across multiple machines. It shou
 TODO: overview of cuda
 
 # Methodology
-Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a Nvidia K20X GPU.
+Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a Nvidia K20X GPU @bwinfo.
 
 Cray XE6 machines were used to perform all tests utilizing purely synthetic data. OpenMP and MPI were implemented by the Cray Compiler, Cray C version 8.3.10.
 The synthetic data is in the form of a gene-by-sample matrix consisting of the presence or absence of each gene within the sample.
