@@ -66,9 +66,6 @@ references:
     URL: "http://www.mpi-forum.org/docs/mpi-3.0/mpi30-report.pdf"
 ---
 
-**Describe the approach taken to solve the problem and project results.
-Student papers should also reflect on the experience including such things as project organization, challenges, and solutions as well as the impact of the project on the students’ education and career outlook.**
-
 # Introduction
 Inferring relations among genes requires a significant amount of data.
 Bayesian networks may be used to correlate this data and extract relationships among the genes. We do not know what this relationship is, but we know it has a high likelihood of existing.
@@ -98,8 +95,6 @@ An advisory board of top entities in computation controls its well-defined speci
 The specification includes language-specific APIs, compiler directives, and standardized environment variables @openmpapi.
 The model of OpenMP is comparable to the fork-join model, but provides convenience (cross-platform) features through compiler directives. These directives consist of, but are not limited to, barriers, critical regions, variable atomicity, shared/private memory, and reductions @openmpapi.
 
-TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout.
-
 ## MPI
 MPI (or **M**essage **P**assing **I**nterface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. The execution of a program which implements MPI must be orchestrated by an executor. The executor forwards appropriate arguments to each machine in order to specify the methods for the machines to talk to one another. The MPI library is used to augment the program arguments upon execution and restore the arguments to what was forwarded to the program traditionally. The augmented arguments are then used to determine rank/role through a clean API and lays the foundation to share memory between the nodes.
 Fault tolerance and concurrency are implemented by the user on a per-case basis, as message sending and receiving is either blocking or asynchronous @mpispec.
@@ -109,13 +104,24 @@ MPI is most beneficial when parallelizing code across multiple machines. It shou
 
 # Methodology
 ## Processors
+TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout.
+TODO: explain why MPI was not used
+TODO: explain how processors were tested
+
 ## Nodes
+TODO: explain how OpenMP not applicable
+TODO: explain how MPI is applicable
+TODO: explain how nodes were tested
 
 # Results and Discussion
 ## Processors
+TODO: results of processor scaling
+
 ## Nodes
+TODO: results of node scaling
 
 # Conclusion
+TODO: reflect on the experience including such things as project organization, challenges, and solutions as well as the impact of the project on the students’ education and career outlook
 
 # Acknowledgments
 This research is part of the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications.
