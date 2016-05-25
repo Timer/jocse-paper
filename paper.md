@@ -109,7 +109,9 @@ TODO: overview of cuda
 
 # Methodology
 ## Processors
-TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout.
+TODO: explain how OpenMP was applicable to the problem at hand at a high level and introspect the program layout
+The first natural step to parallelizing computation is to inspect utilizing multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple cores. Analyzing
+
 TODO: explain why MPI was not used
 TODO: explain why cuda not applicable
 TODO: explain how processors were tested
