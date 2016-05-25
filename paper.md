@@ -149,6 +149,13 @@ We have reached the resource limits on the systems which we have access to, and 
 TODO: explain how OpenMP not applicable
 TODO: explain how MPI is applicable
 
+Distributing the work across multiple machines requires different parameters for the code than that of OpenMP.
+Distributing the Bayesian network learning process across multiple machines doesn't make much sense because each step is dependent on the previous, so the result would be a slower computation since calculations couldn't happen in parallel.
+The main candidate for distribution would be the computation of multiple Bayesian networks, because networks are computed independent of one another and there is a large backlog of networks which need computed.
+Distributing the work with MPI is surprisingly simple, as the topologies are randomly generated. This means there is no communication required prior to beginning computation. Each machine can determine how much work it needs to do by dividing the number of requested topologies per gene by the number of machines in the swarm.
+When the machines complete their share of the computation they communicate to coalesce the computed networks into a consensus network.
+The master machine then saves the consensus network to the disk and completes any required other computations which are simple enough not to require being distributed across machines.
+
 Tests were conducted to measure the impact on runtime when multiple machines were used. The same data was used from the `Processors` test. Tests were run on dedicated machines utilizing **16** processors and computing **60** Bayesian networks per gene (**600** total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
 # Results and Discussion
