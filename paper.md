@@ -165,7 +165,8 @@ int main(int argc, char **argv) {
 ```
 Each machine can then determine how much work it needs to do by dividing the number of requested topologies per gene by the number of machines in the swarm.
 ```c
-int top_d = topologies / forkSize, top_r = topologies % forkSize;
+int top_d = topologies / forkSize;
+int top_r = topologies % forkSize;
 if (forkIndex < top_r) ++top_d;
 topologies = top_d;
 ```
@@ -180,7 +181,8 @@ In the following tables, the standard deviation is represented by the letter `s`
 ## Processors
 ![](http://puu.sh/p4ZJl/0f5491d49c.png)
 ![](http://puu.sh/p4XJm/28269345c4.png)
-When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested. `Graph 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Table 1`.
+When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested.
+`Graph 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Table 1`.
 
 TODO: explain why the resulting decrease is linear
 TODO: explain why openmp results in such low standard error
