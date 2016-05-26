@@ -121,7 +121,8 @@ MPI is most beneficial when parallelizing code across multiple machines. It shou
 ## CUDA
 CUDA is a parallel computing platform and application programming interface (API) developed by NVIDIA @cudainfo.
 CUDA allows software developers to utilize CUDA-enabled GPUs for general purpose processing (or GPGPU).
-The primary use case is when work is **independent** and **many** things need to be done in parallel.
+CUDA introduces a concept called kernels, which are extensions of C functions that, when called, are executed in parallel by CUDA threads instead of once like regular C functions @cudaguide.
+The primary use case is when work is **independent** and **many** things need to be done in parallel (e.g. scaling a vector).
 Due to the structure of threads on the GPU, operations such as branches or jumps are *permitted* but **discouraged**. This is because threads run in lockstep and when a branch happens, the branches are executed serially. This means threads are suspended and do not continue execution while the opposite branch is being explored. After the branch completes and the instructions converge, all threads resume running @cudaguide. This has many detrimental performance implications.
 Knowing this, the GPU is best suited for vector-operations of scaling or other arithmetic which does not branch.
 The memory for CUDA also resides on the GPU itself, which means before any kernels are executed, memory must be copied to the GPU. Memory must then also be copied back to the host machine for use by the CPU @cudaguide. This adds a delay which may invalidate the benefits of CUDA for smaller workloads.
