@@ -70,6 +70,10 @@ references:
     title: "Lessons Learned From the Analysis of System Failures at Petascale: The Case of Blue Waters"
     institution: "University of Illinois at Urbana-Champaign"
     URL: "https://courses.engr.illinois.edu/ece542/sp2014/finalexam/papers/bluewaters.pdf"
+  - id: cudainfo
+    type: webpage
+    title: "CUDA Parallel Computing Platform"
+    URL: "http://www.nvidia.com/object/cuda_home_new.html"
 ---
 
 # Introduction
@@ -105,8 +109,6 @@ OpenMP enables parallel code portability at a level which would not be achievabl
 OpenMP by nature allows simple, straight-forward, parallelization of loops with simple compiler directives that targets the system the program is compiled on.
 Without this library, the program would have to include many different libraries and routines to achieve parallel code across different systems. The result of this would be a program which only works on a specific set of machines, or a code base which is hard to maintain and debug when changes are made to the underlying concurrent workings.
 
-TODO: explain kernel scheduling and OS etc and potential overhead
-
 ## MPI
 MPI (or **M**essage **P**assing **I**nterface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. The execution of a program which implements MPI must be orchestrated by an executor. The executor forwards appropriate arguments to each machine in order to specify the methods for the machines to talk to one another. The MPI library is used to augment the program arguments upon execution and restore the arguments to what was forwarded to the program traditionally. The augmented arguments are then used to determine rank/role through a clean API and lays the foundation to share memory between the machines.
 Fault tolerance and concurrency are implemented by the user on a per-case basis, as message sending and receiving is either blocking or asynchronous @mpispec.
@@ -114,9 +116,10 @@ MPI is most beneficial when parallelizing code across multiple machines. It shou
 
 ## CUDA
 TODO: overview of cuda
+CUDA is a parallel computing platform and application programming interface (API) developed by NVIDIA @cudainfo.
 
 # Methodology
-Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a Nvidia K20X GPU @bwinfo.
+Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a NVIDIA K20X GPU @bwinfo.
 
 Cray XE6 machines were used to perform all tests utilizing purely synthetic data. OpenMP and MPI were implemented by the Cray Compiler, Cray C version 8.3.10.
 The synthetic data is in the form of a gene-by-sample matrix consisting of the presence or absence of each gene within the sample.
