@@ -237,7 +237,7 @@ The resulting runtime decrease also appears to be linear while increasing the nu
 Observing **64** machines and leading up to **64** machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
 It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see `Figure 4` for test results.
 
-![Machines Result Graph](http://puu.sh/p4ZJS/385ceeb7f6.png)
+![Machine Results Graph](http://puu.sh/p4ZJS/385ceeb7f6.png)
 
 ![Machine Results Data](http://puu.sh/p5Xhw/94154679a0.png)
 
