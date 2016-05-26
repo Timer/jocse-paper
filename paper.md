@@ -46,6 +46,49 @@ references:
       - given: Edward
         family: Herskovits
     type: article-journal
+  - id: altekar
+    title: Parallel metropolis coupled Markov chain Monte Carlo for Bayesian phylogenetic inference
+    container-title: Bioinformatics
+    issued:
+      year: 2004
+    volume: 20
+    issue: 3
+    page: 407-415
+    type: article-journal
+    author:
+      - given: Gautam
+        family: Altekar
+      - given: Sandhya
+        family: Dwarkadas
+      - given: John P.
+        family: Huelsenbeck
+      - given: Fredrik
+        family: Ronquist
+  - id: misra
+    title: "Parallel Bayesian network structure learning for genome-scale gene networks"
+    container-title: International Conference for High Performance Computing, Networking, Storage and Analysis
+    issued:
+      year: 2014
+    volume: SC14
+    page: 461-472
+    type: article-journal
+    author:
+      - given: Sanchit
+        family: Misra
+      - given: Vasimuddin
+        family: Md
+      - given: Kiran
+        family: Pamnany
+      - given: Sriram P.
+        family: Chockalingam
+      - given: Yong
+        family: Dong
+      - given: Min
+        family: Xie
+      - given: Maneesha R.
+        family: Aluru
+      - given: Srinivas
+        family: Aluru
   - id: sriram
     title: Predicting Gene Relations Using Bayesian Networks
     issued:
@@ -110,7 +153,7 @@ Bayesian network learning, however, is inherently slow because it is an NP-hard 
 K2 is a great example of a search space reduction algorithm, but introduces a new problem. K2 restricts the parent hierarchy of genes within the graph, and thus introduces bias in the computed relations.
 To achieve high confidence in the generated networks, an abundance of Bayesian networks need to be computed using random search space restrictions. These random search space restrictions remove the bias and provide results which can be interpreted at various levels of confidence @sriram.
 By eliminating one problem and introducing another, we have enabled the ability of parallelization by requiring multiple units of work rather than just one faster unit of work.
-Other authors describe parallel implementations that can increase the speed of Bayesian network learning (cite).
+Other authors describe parallel implementations that can increase the speed of Bayesian network learning @altekar @misra.
 However, no libraries exist which compute multiple Bayesian networks concurrently.
 This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
 This examination is performed through implementation of said algorithm, utilizing various methods available such as OpenMP, MPI, and CUDA.
