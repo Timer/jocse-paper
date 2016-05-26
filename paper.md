@@ -1,8 +1,30 @@
 ---
 title: "STUDENT PAPER: An Implementation of Parallel Bayesian Network Learning"
 author:
-  - Joseph Haddad
-  - Timothy W. O'Neil
+  - |
+    | Joseph S. Haddad
+    | The University of Akron
+    | 302 E Buchtel Ave
+    | Akron, OH, 44325, United States
+    | jsh77@zips.uakron.edu
+  - |
+    | Timothy W. O'Neil
+    | The University of Akron
+    | 302 E Buchtel Ave
+    | Akron, OH, 44325, United States
+    | toneil@uakron.edu
+  - |
+    | Anthony Deeter
+    | The University of Akron
+    | 302 E Buchtel Ave
+    | Akron, OH, 44325, United States
+    | aed27@zips.uakron.edu
+  - |
+    | Zhong-Hui Duan
+    | The University of Akron
+    | 302 E Buchtel Ave
+    | Akron, OH, 44325, United States
+    | duan@uakron.edu
 tags: [Computing]
 abstract: |
   Bayesian networks may be utilized to infer genetic relations among genes. This has proven useful in providing information about how gene interactions influence life.
@@ -195,10 +217,11 @@ In the following tables, the standard deviation is represented by the letter `s`
 
 ## Processors
 When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested.
-`Graph 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Table 1`.
+`Figure 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Figure 2`.
 
-![](http://puu.sh/p4ZJl/0f5491d49c.png)
-![](http://puu.sh/p4XJm/28269345c4.png)
+![Processor Results Graph](http://puu.sh/p4ZJl/0f5491d49c.png)
+
+![Processor Results Data](http://puu.sh/p4XJm/28269345c4.png)
 
 This linear decrease is consistent with how OpenMP distributes its work. OpenMP distributes the task of an independent Bayesian network computation across multiple threads simultaneously. These independent tasks are not blocking and do not lock one another, and thus have very little contention. There is one lock after each computation which appends the network to the consensus network, but is negligible to the total time taken to compute the Bayesian networks.
 OpenMP results in such low standard error because it works with memory within the program and requires no network communication like MPI. The reduction of standard error as the number of threads increase may be due to the kernel. The kernel is responsible for scheduling threads and ensuring other work on the system gets done. The increase in threads means there are more threads which may go uninterrupted by the kernel scheduling something from the operating system.
@@ -208,11 +231,12 @@ Currently, all matrix operations are done on a single-thread, and may potentiall
 Operations like this are ideal for the GPU as it can perform the arithmetic, with no branching, across several thousand of threads simultaneously. This has the potential of speeding up calculations beyond the added latency from copying the memory to the GPU and back to the host.
 
 ## Machines
-The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. `Graph 2` demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
+The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. `Figure 3` demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
 Observing **64** machines and leading up to **64** machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
-It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see `Table 2` for test results.
+It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see `Figure 4` for test results.
 
-![](http://puu.sh/p4ZJS/385ceeb7f6.png)
+![Machines Result Graph](http://puu.sh/p4ZJS/385ceeb7f6.png)
+
 ![TODO: nodes -> machines](http://puu.sh/p4XMG/bbdeb91a8c.png)
 
 The standard error generally increases with the increase in machines, but this is not always true. There does not seem to be a correlation between an increase or decrease in machines with an increase or decrease in standard error, except for the general rule stated above.
@@ -224,7 +248,7 @@ By generating a consensus network out of many Bayesian networks, researchers may
 We have concluded that utilizing parallelization through means of OpenMP and MPI substantially reduces the time to generate a consensus network. This parallelization, however, is computing multiple Bayesian networks simultaneously with no implemented accelerations for the network learning itself.
 The search space reduction, K2, was a great start but there may still be room to improve with CUDA. Future work contains plans to implement the CUDA accelerations for the matrix operations that happen within the Bayesian network learning algorithm, but is significantly more difficult than the OpenMP and MPI implementation.
 The motivation for this is that CUDA has the potential to speed the algorithm up by several orders of magnitude.
-Additionally, the speedup of OpenMP and MPI have limits which we cannot break without exploring CUDA acceleration. As demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see `Graph 2`.
+Additionally, the speedup of OpenMP and MPI have limits which we cannot break without exploring CUDA acceleration. As demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see `Figure 3`.
 
 Working on this project gave me a massive amount of experience, which far surpassed what I thought it would.
 I gained experience in professional writing for journal publications and renewed my skills in proofreading.
