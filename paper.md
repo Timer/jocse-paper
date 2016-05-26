@@ -115,6 +115,8 @@ However, no libraries exist which compute multiple Bayesian networks concurrentl
 This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
 This examination is performed through implementation of said algorithm, utilizing various methods available such as OpenMP, MPI, and CUDA.
 
+TODO: say results published in different paper, reference it, etc
+
 ## Bayesian Networks
 Bayesian networks capture qualitative relationships among variables within directed acyclic graphs (or DAGS).
 Nodes within the DAG represent variables, and edges represent dependencies between said variables @korb @pearl.
