@@ -190,12 +190,12 @@ TODO: potential of cuda with rearchitecting
 
 ## Machines
 ![](http://puu.sh/p4ZJS/385ceeb7f6.png)
-![](http://puu.sh/p4XMG/bbdeb91a8c.png)
+![TODO: nodes -> machines](http://puu.sh/p4XMG/bbdeb91a8c.png)
 The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. `Graph 2` demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
-Observing **64** nodes and leading up to **64** nodes, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
+Observing **64** machines and leading up to **64** machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
 It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see `Table 2` for test results.
 
-The standard error generally increases with the increase in nodes, but this is not always true. There does not seem to be a correlation between an increase or decrease in nodes with an increase or decrease in standard error, except for the general rule stated above.
+The standard error generally increases with the increase in machines, but this is not always true. There does not seem to be a correlation between an increase or decrease in machines with an increase or decrease in standard error, except for the general rule stated above.
 This is consistent with the fact that networks are very unpredictable. Pings may vary wildly depending on other network traffic and the route which packets decide to take. Additionally, there may be other noisy neighbors on the network hogging bandwidth and causing slower transmissions. On clusters across the world wide web, traffic may have to travel through geographical displacement and suffer packet loss or increases in latency.
 The only thing consistent with the standard error is that it is not consistent.
 
