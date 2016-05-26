@@ -210,7 +210,13 @@ We have concluded that utilizing parallelization through means of OpenMP and MPI
 The search space reduction, K2, was a great start but there may still be room to improve with CUDA. Future work contains plans to implement the CUDA accelerations for the matrix operations that happen within the Bayesian network learning algorithm, but is significantly more difficult than the OpenMP and MPI implementation.
 The motivation for this is that CUDA has the potential to speed the algorithm up by several orders of magnitude.
 Additionally, the speedup of OpenMP and MPI have limits which we cannot break without exploring CUDA acceleration. As demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see `Graph 2`.
-TODO: reflect on the experience including such things as project organization, challenges, and solutions as well as the impact of the project on the students’ education and career outlook
+
+Working on this project gave me a massive amount of experience, which far surpassed what I thought it would.
+I gained experience in professional writing for journal publications and renewed my skills in proofreading.
+I also gained exposure to a whole new aspect of project organization which I was not used to: meetings with advisors, progress reports, and demos.
+I feel like this has really helped foster my professional identity and prepared me more for higher education and the workforce.
+Additionally, I flexed my problem solving skills when implementing the algorithm and begun refactoring. The refactoring had to be done in such a fashion to allow for parallelization. This presented some challenges because there were also memory considerations to make things sharable over the network (MPI).
+Overall, I learned many invaluable skills which will be applied to my future education and work.
 
 # Acknowledgments
 This research is part of the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications.
