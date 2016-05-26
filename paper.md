@@ -181,6 +181,7 @@ In the following tables, the standard deviation is represented by the letter `s`
 ## Processors
 ![](http://puu.sh/p4ZJl/0f5491d49c.png)
 ![](http://puu.sh/p4XJm/28269345c4.png)
+
 When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested.
 `Graph 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Table 1`.
 This linear decrease is consistent with how OpenMP distributes its work. OpenMP distributes the task of an independent Bayesian network computation across multiple threads simultaneously. These independent tasks are not blocking and do not lock one another, and thus have very little contention. There is one lock after each computation which appends the network to the consensus network, but is negligible to the total time taken to compute the Bayesian networks.
@@ -191,6 +192,7 @@ TODO: potential of cuda with rearchitecting
 ## Machines
 ![](http://puu.sh/p4ZJS/385ceeb7f6.png)
 ![TODO: nodes -> machines](http://puu.sh/p4XMG/bbdeb91a8c.png)
+
 The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. `Graph 2` demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
 Observing **64** machines and leading up to **64** machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
 It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see `Table 2` for test results.
