@@ -262,4 +262,8 @@ Overall, I learned many invaluable skills which will be applied to my future edu
 # Acknowledgments
 This research is part of the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications.
 
+Additional financial support was provided by the Buchtel College of Arts and Sciences at The University of Akron.
+
+The data, statements, and views within this paper are solely the responsibility of the authors.
+
 # References
