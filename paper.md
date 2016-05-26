@@ -74,6 +74,10 @@ references:
     type: webpage
     title: "CUDA Parallel Computing Platform"
     URL: "http://www.nvidia.com/object/cuda_home_new.html"
+  - id: cudaguide
+    type: webpage
+    title: "CUDA C Programming Guide"
+    URL: "http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html"
 ---
 
 # Introduction
@@ -115,8 +119,12 @@ Fault tolerance and concurrency are implemented by the user on a per-case basis,
 MPI is most beneficial when parallelizing code across multiple machines. It should be avoided for spanning computation across multiple cores because it introduces networking overhead which is unnecessary when a solution such as OpenMP should be used.
 
 ## CUDA
-TODO: overview of cuda
 CUDA is a parallel computing platform and application programming interface (API) developed by NVIDIA @cudainfo.
+CUDA allows software developers to utilize CUDA-enabled GPUs for general purpose processing (or GPGPU).
+The primary use case is when work is **independent** and **many** things need to be done in parallel.
+Due to the structure of threads on the GPU, operations such as branches or jumps are *permitted* but **discouraged**. This is because threads run in lockstep and when a branch happens, the branches are executed serially. This means threads are suspended and do not continue execution while the opposite branch is being explored. After the branch completes and the instructions converge, all threads resume running @cudaguide. This has many detrimental performance implications.
+Knowing this, the GPU is best suited for vector-operations of scaling or other arithmetic which does not branch.
+The memory for CUDA also resides on the GPU itself, which means before any kernels are executed, memory must be copied to the GPU. Memory must then also be copied back to the host machine for use by the CPU @cudaguide. This adds a delay which may invalidate the benefits of CUDA for smaller workloads.
 
 # Methodology
 Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a NVIDIA K20X GPU @bwinfo.
