@@ -182,23 +182,24 @@ Tests were conducted to measure the impact on runtime when multiple machines wer
 In the following tables, the standard deviation is represented by the letter `s` and the standard error is denoted by `se`.
 
 ## Processors
+When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested.
+`Graph 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Table 1`.
+
 ![](http://puu.sh/p4ZJl/0f5491d49c.png)
 ![](http://puu.sh/p4XJm/28269345c4.png)
 
-When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested.
-`Graph 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Table 1`.
 This linear decrease is consistent with how OpenMP distributes its work. OpenMP distributes the task of an independent Bayesian network computation across multiple threads simultaneously. These independent tasks are not blocking and do not lock one another, and thus have very little contention. There is one lock after each computation which appends the network to the consensus network, but is negligible to the total time taken to compute the Bayesian networks.
 OpenMP results in such low standard error because it works with memory within the program and requires no network communication like MPI. The reduction of standard error as the number of threads increase may be due to the kernel. The kernel is responsible for scheduling threads and ensuring other work on the system gets done. The increase in threads means there are more threads which may go uninterrupted by the kernel scheduling something from the operating system.
 
 TODO: potential of cuda with rearchitecting
 
 ## Machines
-![](http://puu.sh/p4ZJS/385ceeb7f6.png)
-![TODO: nodes -> machines](http://puu.sh/p4XMG/bbdeb91a8c.png)
-
 The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. `Graph 2` demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
 Observing **64** machines and leading up to **64** machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
 It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see `Table 2` for test results.
+
+![](http://puu.sh/p4ZJS/385ceeb7f6.png)
+![TODO: nodes -> machines](http://puu.sh/p4XMG/bbdeb91a8c.png)
 
 The standard error generally increases with the increase in machines, but this is not always true. There does not seem to be a correlation between an increase or decrease in machines with an increase or decrease in standard error, except for the general rule stated above.
 This is consistent with the fact that networks are very unpredictable. Pings may vary wildly depending on other network traffic and the route which packets decide to take. Additionally, there may be other noisy neighbors on the network hogging bandwidth and causing slower transmissions. On clusters across the world wide web, traffic may have to travel through geographical displacement and suffer packet loss or increases in latency.
