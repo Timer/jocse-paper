@@ -180,7 +180,7 @@ In the following tables, the standard deviation is represented by the letter `s`
 ## Processors
 ![](http://puu.sh/p4ZJl/0f5491d49c.png)
 ![](http://puu.sh/p4XJm/28269345c4.png)
-
+When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested. `Graph 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Table 1`.
 TODO: results of processor scaling
 TODO: potential of cuda with rearchitecting
 
