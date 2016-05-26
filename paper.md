@@ -191,8 +191,11 @@ TODO: potential of cuda with rearchitecting
 ## Machines
 ![](http://puu.sh/p4ZJS/385ceeb7f6.png)
 ![](http://puu.sh/p4XMG/bbdeb91a8c.png)
+The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. `Graph 2` demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
+Observing **64** nodes and leading up to **64** nodes, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
+It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see `Table 2` for test results.
 
-TODO: results of node scaling
+TODO: explain variation
 
 # Conclusion
 TODO: conclude results
