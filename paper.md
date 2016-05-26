@@ -151,7 +151,24 @@ OpenMP cannot share memory across machines so it cannot be applied to this situa
 MPI is the prime candidate for this situation as it allows machines to send messages back and forth to share memory and communicate their responsibilities and result.
 Distributing the Bayesian network learning process across multiple machines doesn't make much sense because each step is dependent on the previous, so the result would be a slower computation since calculations couldn't happen in parallel and there would be added network latency.
 The main candidate for distribution would be the computation of multiple Bayesian networks, because networks are computed independent of one another and there is a large backlog of networks which need computed.
-Distributing the work with MPI is surprisingly simple, as the topologies are randomly generated. This means there is no communication required prior to beginning computation. Each machine can determine how much work it needs to do by dividing the number of requested topologies per gene by the number of machines in the swarm.
+Distributing the work with MPI is surprisingly simple, as the topologies are randomly generated. This means there is no communication required prior to beginning computation.
+Upon initialization, each machine must determine its rank and role by augmenting the parameters, this may be done like so.
+```c
+int main(int argc, char **argv) {
+  int forkIndex = 0, forkSize = 1;
+  MPI_Init(&argc, &argv);
+  MPI_Comm_rank(MPI_COMM_WORLD, &forkIndex);
+  MPI_Comm_size(MPI_COMM_WORLD, &forkSize);
+
+  ...
+}
+```
+Each machine can then determine how much work it needs to do by dividing the number of requested topologies per gene by the number of machines in the swarm.
+```c
+int top_d = topologies / forkSize, top_r = topologies % forkSize;
+if (forkIndex < top_r) ++top_d;
+topologies = top_d;
+```
 When the machines complete their share of the computation they communicate to coalesce the computed networks into a consensus network.
 The master machine then saves the consensus network to the disk and completes any required other computations which are simple enough not to require being distributed across machines.
 
