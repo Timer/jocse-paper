@@ -205,7 +205,11 @@ This is consistent with the fact that networks are very unpredictable. Pings may
 The only thing consistent with the standard error is that it is not consistent.
 
 # Conclusion
-TODO: conclude results
+By generating a consensus network out of many Bayesian networks, researchers may screen and infer new gene interactions. This allows researchers to feel more confident about testing hypotheses in the lab, such that their resources and time will not be wasted.
+We have concluded that utilizing parallelization through means of OpenMP and MPI substantially reduces the time to generate a consensus network. This parallelization, however, is computing multiple Bayesian networks simultaneously with no implemented accelerations for the network learning itself.
+The search space reduction, K2, was a great start but there may still be room to improve with CUDA. Future work contains plans to implement the CUDA accelerations for the matrix operations that happen within the Bayesian network learning algorithm, but is significantly more difficult than the OpenMP and MPI implementation.
+The motivation for this is that CUDA has the potential to speed the algorithm up by several orders of magnitude.
+Additionally, the speedup of OpenMP and MPI have limits which we cannot break without exploring CUDA acceleration. As demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see `Graph 2`.
 TODO: reflect on the experience including such things as project organization, challenges, and solutions as well as the impact of the project on the students’ education and career outlook
 
 # Acknowledgments
