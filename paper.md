@@ -211,7 +211,7 @@ Knowing this, the GPU is best suited for vector-operations like scaling or other
 The memory for CUDA also resides on the GPU itself, which means before any kernels are executed memory must be copied to the GPU. Memory must then also be copied back to the host machine for use by the CPU @cudaguide. This adds a delay which may invalidate the benefits of CUDA for smaller workloads.
 
 # Methodology
-Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a NVIDIA K20X GPU @bwinfo.
+Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two **16** core AMD processors with **64** GBs of RAM. The XK7 machines consist of a single **16** core AMD processor and a NVIDIA K20X GPU with **32** GBs of RAM @bwinfo.
 
 Cray XE6 machines were used to perform all tests utilizing purely synthetic data. OpenMP and MPI were implemented by the Cray Compiler, Cray C version 8.3.10.
 The synthetic data is in the form of a gene-by-sample matrix consisting of the presence or absence of each gene within the sample.
