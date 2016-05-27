@@ -279,7 +279,7 @@ In the following tables, the standard deviation is represented by the letter `s`
 
 ## Processors
 When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested.
-`Figure 1` illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in `Figure 2`.
+Figure 1 illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in Figure 2.
 
 ![Processor Results Graph](http://puu.sh/p5XtT/305ea28995.png)
 
@@ -293,9 +293,9 @@ Currently, all matrix operations are done on a single-thread, and may potentiall
 Operations like this are ideal for the GPU as it can perform the arithmetic, with no branching, across several thousand of threads simultaneously. This has the potential of speeding up calculations beyond the added latency from copying the memory to the GPU and back to the host.
 
 ## Machines
-The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. `Figure 3` demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
+The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. Figure 3 demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
 Observing **64** machines and leading up to **64** machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
-It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see `Figure 4` for test results.
+It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see Figure 4 for test results.
 
 ![Machine Results Graph](http://puu.sh/p5Xzp/f8b6d6241d.png)
 
@@ -310,7 +310,7 @@ By generating a consensus network out of many Bayesian networks, researchers may
 We have concluded that utilizing parallelization through means of OpenMP and MPI substantially reduces the time to generate a consensus network. This parallelization, however, is computing multiple Bayesian networks simultaneously with no implemented accelerations for the network learning itself.
 The search space reduction, K2, was a great start but there may still be room to improve with CUDA. Future work contains plans to implement the CUDA accelerations for the matrix operations that happen within the Bayesian network learning algorithm, but is significantly more difficult than the OpenMP and MPI implementation.
 The motivation for this is that CUDA has the potential to speed the algorithm up by several orders of magnitude.
-Additionally, the speedup of OpenMP and MPI have limits which we cannot break without exploring CUDA acceleration. As demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see `Figure 3`.
+Additionally, the speedup of OpenMP and MPI have limits which we cannot break without exploring CUDA acceleration. As demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see Figure 3.
 
 Working on this project gave me a massive amount of experience, which far surpassed what I thought it would.
 I gained experience in professional writing for journal publications and renewed my skills in proofreading.
