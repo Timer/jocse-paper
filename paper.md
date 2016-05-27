@@ -34,9 +34,10 @@ abstract: |
 references:
   - id: firstpaper
     title: Analysis of Parallel Bayesian Network Learning
-    container-title: "TODO: volume, issue"
+    container-title: "Proceedings of the 31st International Conference on Computers and Their Applications"
     issued:
       year: 2016
+      isbn: "978–1–943436–02–6"
     page: 101-106
     author:
       - given: Joseph S.
