@@ -167,7 +167,7 @@ Bayesian networks may be used to correlate this data and extract relationships a
 These interactions can then be used to make testable hypotheses to determine how gene interactions influence life in organisms or humans. As a result, tests can be performed in the lab with more confidence and a reduced chance of wasting time and resources.
 Bayesian network learning, however, is inherently slow because it is an NP-hard algorithm @cooper. Search space reduction algorithms may be utilized to reduce the computational complexity.
 K2 is a great example of a search space reduction algorithm, but introduces a new problem. K2 restricts the parent hierarchy of genes within the network, and thus introduces bias in the computed relations.
-To achieve high confidence in the generated networks, an abundance of Bayesian networks need to be computed using random search space restrictions. These random search space restrictions remove the bias and provide results which can be interpreted at various levels of confidence.
+To achieve high confidence in the generated networks, an abundance of Bayesian networks need to be computed using random search space restrictions. These random search space restrictions (or topologies) remove the bias and provide results which can be interpreted at various levels of confidence.
 By eliminating one problem and introducing another, we have enabled the ability of parallelization by requiring multiple units of work rather than just one faster unit of work.
 Other authors describe parallel implementations that can increase the speed of Bayesian network learning @altekar @misra.
 However, no libraries exist which compute multiple Bayesian networks concurrently.
