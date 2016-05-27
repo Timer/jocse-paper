@@ -32,6 +32,22 @@ abstract: |
   This paper evaluates and realizes parallelization of network generation and the reasoning behind the choices made.
   Methods were tested and developed to test the results of the implemented accelerations. Generating these networks across multiple cores results in a linear speed-up with negligible overhead. Distributing the generation of networks across multiple machines also introduces linear speed-up, but may result in additional overhead.
 references:
+  - id: firstpaper
+    title: Analysis of Parallel Bayesian Network Learning
+    container-title: "TODO: volume, issue"
+    issued:
+      year: 2016
+    page: 101-106
+    author:
+      - given: Joseph S.
+        family: Haddad
+      - given: Anthony
+        family: Deeter
+      - given: Zhong-Hui
+        family: Duan
+      - given: Timothy W.
+        family: O’Neil
+    type: article-journal
   - id: cooper
     title: A Bayesian method for the induction of probabilistic networks from data
     container-title: Machine Learning
@@ -157,6 +173,8 @@ Other authors describe parallel implementations that can increase the speed of B
 However, no libraries exist which compute multiple Bayesian networks concurrently.
 This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
 This examination is performed through implementation of said algorithm, utilizing various methods available such as OpenMP, MPI, and CUDA.
+
+This paper is an extension to initial analysis performed on the algorithm, and explains the what and how the implementation was done @firstpaper. The preceding publication shows why the algorithm needs to be sped up, as samples causes linear growth of the problem and introduction of genes exponential growth of the problem @firstpaper.
 
 TODO: say results published in different paper, reference it, etc
 
@@ -301,11 +319,13 @@ I also gained exposure to a whole new aspect of project organization which I was
 I feel like this has really helped foster my professional identity and prepared me more for higher education and the workforce.
 Additionally, I flexed my problem solving skills while implementing the algorithm and begun refactoring. The refactoring had to be done in such a fashion to allow for parallelization. This presented some challenges because there were also memory considerations to make things sharable over the network (MPI).
 Overall, I learned many invaluable skills which will be applied to my future education and work.
+Notably, I performed my first publication @firstpaper and gave a presentation at the conference, then presented a poster version of the paper at GLBIO 2016 to draw attention to the work.
 
 # Acknowledgments
 This research is part of the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications.
 
 Additional financial support was provided by the Buchtel College of Arts and Sciences at The University of Akron.
+Further support was provided by a grant from the Choose Ohio First Bioinformatics scholarship.
 
 The data, statements, and views within this paper are solely the responsibility of the authors.
 
