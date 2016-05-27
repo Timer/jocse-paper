@@ -181,9 +181,9 @@ Bayesian networks capture qualitative relationships among variables within a dir
 Nodes within the DAG represent variables, and edges represent dependencies between the variables @korb @pearl.
 Bayesian networks have a search space which grows exponentially when introducing new nodes and not placing restrictions on the structure of the network.
 This complication can be overcome by using the K2 algorithm. The K2 algorithm reduces the computational cost of learning by imposing restraints on parent node connections via topological ordering @cooper.
+Here, a topology refers to a hierarchical structure of parenthood that the K2 algorithm will utilize to reduce overall computational complexity while scoring data relationships.
 Restricting the parent ordering, however, creates an issue of bias, which is inherent within a constraint-based search space reduction.
 Sriram @sriram proposed a solution to this issue by creating a consensus network, or the combination of multiple Bayesian networks derived from several topological inputs.
-Here, a topology refers to a hierarchical structure of parenthood that the K2 algorithm will utilize to reduce overall computational complexity while scoring data relationships.
 To eliminate the bias created by these restraints, many randomly generated topologies are used. By increasing the number of topological inputs, the consensus network has a greater chance of reflecting the true nature of the gene interactions with higher levels of confidence.
 
 ## OpenMP
