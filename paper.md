@@ -218,11 +218,11 @@ The synthetic data is in the form of a gene-by-sample matrix consisting of the p
 Each test was run five times with the mean, standard deviation, and standard error calculated.
 
 ## Processors
-The first natural step to parallelizing computation is to inspect utilizing multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple cores.
+The first natural step in parallelizing computation is to attempt to use multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple threads.
 Analyzing the program reveals a handful of potential places for parallelization. There are many loops which perform actions which are independent from one another, such as matrix calculations.
-Operations like these tend to lend themselves best to CUDA, however, due to the way the matrices are architected, CUDA may not be applied. Matrices in the program consist of a 2-dimensional array of pointers instead of a primitive data type. Because of this, each pointer must be resolved before being copied to the CUDA card which effectively removes all the benefit of using CUDA in the first place.
+Operations like these tend to lend themselves best to CUDA, however, due to the way the matrices are architected, CUDA can not be applied. Matrices in the program consist of a 2-dimensional array of pointers instead of a primitive data type. Because of this, each pointer must be resolved before being copied to the CUDA card which effectively removes all the benefit of using CUDA in the first place.
 This problem could be mitigated by storing the matrices as a 2-dimensional array of a primitive data type, however, would require substantial refactoring of the program and its functionality. This refactoring would require resources which exceed that of which were allocated for this research.
-Since CUDA could not be utilized, OpenMP and MPI were the remaining two options. MPI would not lend itself well to this problem because these operations are being acted upon memory which is specific to the machine running the program, and would introduce unnecessary overhead and network communications. MPI could potentially slow down the program given the set of the data the program is working with.
+Since CUDA can not be utilized, OpenMP and MPI are the remaining two options. MPI does not lend itself well to this problem because these operations are being acted upon memory which is specific to the machine running the program and would introduce unnecessary overhead and network communications. MPI could potentially speed up the program, but does so in an expensive fashion.
 OpenMP, however, would work perfectly for this use case. OpenMP was implemented with a simple compiler directive which sped up computation.
 ```c++
 #pragma omp parallel for
@@ -230,7 +230,7 @@ for (...) { }
 ```
 Additionally, other opportunities were inspected for parallelization. The next one which jumped out was the creation of a network for each individual topology.
 The creation of Bayesian networks are independent from one another, and thus, networks can be asynchronously generated on the same data set.
-CUDA does not lend itself well to this use case because it is not performing strictly arithmetic operations. Similarly to above, using MPI would be a waste of resources which leaves the best candidate again being OpenMP.
+CUDA does not lend itself well to this use case because it is not performing strictly arithmetic operations. Similar to above, using MPI would be a waste of resources which leaves the best candidate again being OpenMP.
 Implementation of this parallelization is straight-forward as Bayesian network computation does not mutate its data set. This prevents us from having to replicate the memory and increase the space complexity of the algorithm. OpenMP was implemented again with a simple compiler directive.
 ```c++
 #pragma omp parallel for
