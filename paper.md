@@ -176,8 +176,6 @@ This examination is performed through implementation of said algorithm, utilizin
 
 This paper is an extension to initial analysis performed on the algorithm, and explains the what and how the implementation was done @firstpaper. The preceding publication shows why the algorithm needs to be sped up, as samples causes linear growth of the problem and introduction of genes exponential growth of the problem @firstpaper.
 
-TODO: say results published in different paper, reference it, etc
-
 ## Bayesian Networks
 Bayesian networks capture qualitative relationships among variables within directed acyclic graphs (or DAGS).
 Nodes within the DAG represent variables, and edges represent dependencies between said variables @korb @pearl.
