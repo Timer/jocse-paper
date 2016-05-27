@@ -246,7 +246,7 @@ We have reached the resource limits on the systems which we have access to, and 
 ## Machines
 Distributing the work across multiple machines requires different parameters for the code than that of OpenMP.
 OpenMP cannot share memory across machines so it cannot be applied to this situation.
-MPI is the prime candidate for this situation as it allows machines to send messages back and forth to share memory and communicate their responsibilities and result.
+MPI is the prime candidate for this situation as it allows machines to send messages back and forth to share memory and communicate their responsibilities and results.
 Distributing the Bayesian network learning process across multiple machines doesn't make much sense because each step is dependent on the previous, so the result would be a slower computation since calculations couldn't happen in parallel and there would be added network latency.
 The main candidate for distribution would be the computation of multiple Bayesian networks, because networks are computed independent of one another and there is a large backlog of networks which need computed.
 Distributing the work with MPI is surprisingly simple, as the topologies are randomly generated. This means there is no communication required prior to beginning computation.
@@ -269,9 +269,9 @@ if (forkIndex < top_r) ++top_d;
 topologies = top_d;
 ```
 When the machines complete their share of the computation they communicate to coalesce the computed networks into a consensus network.
-The master machine then saves the consensus network to the disk and completes any required other computations which are simple enough not to require being distributed across machines.
+The master machine then saves the consensus network to the disk and completes any other required computations which are simple enough not to require being distributed across machines.
 
-Tests were conducted to measure the impact on runtime when multiple machines were used. The same data was used from the `Processors` test. Tests were run on dedicated machines utilizing **16** processors and computing **60** Bayesian networks per gene (**600** total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
+Tests are conducted to measure the impact on runtime when multiple machines are used. The same data is used from the `Processors` test. Tests were run on dedicated machines utilizing **16** processors and computing **60** Bayesian networks per gene (**600** total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
 # Results and Discussion
 In the following tables, the standard deviation is represented by the letter `s` and the standard error is denoted by `se`.
@@ -301,7 +301,7 @@ It is important to note that an increase in resources does not necessarily mean 
 ![Machine Results Data](http://puu.sh/p5Xhw/94154679a0.png)
 
 The standard error generally increases with the increase in machines, but this is not always true. There does not seem to be a correlation between an increase or decrease in machines with an increase or decrease in standard error, except for the general rule stated above.
-This is consistent with the fact that networks are very unpredictable. Pings may vary wildly depending on other network traffic and the route which packets decide to take. Additionally, there may be other noisy neighbors on the network hogging bandwidth and causing slower transmissions. On clusters across the world wide web, traffic may have to travel through geographical displacement and suffer packet loss or increases in latency.
+This is consistent with the fact that networks are very unpredictable. Pings may vary wildly depending on other network traffic and the route which packets decide to take. Additionally, there may be other noisy peers on the network hogging bandwidth and causing slower transmissions. On clusters across the world wide web, traffic may have to travel through geographical displacement and suffer packet loss or increases in latency.
 The only thing consistent with the standard error is that it is not consistent.
 
 # Conclusion
@@ -317,7 +317,7 @@ I also gained exposure to a whole new aspect of project organization which I was
 I feel like this has really helped foster my professional identity and prepared me more for higher education and the workforce.
 Additionally, I flexed my problem solving skills while implementing the algorithm and begun refactoring. The refactoring had to be done in such a fashion to allow for parallelization. This presented some challenges because there were also memory considerations to make things sharable over the network (MPI).
 Overall, I learned many invaluable skills which will be applied to my future education and work.
-Notably, I performed my first publication @firstpaper and gave a presentation at the conference, then presented a poster version of the paper at GLBIO 2016 to draw attention to the work.
+Notably, I performed my first publication @firstpaper and gave a presentation at the associated conference, then presented a poster version of the paper at GLBIO 2016 to draw attention to the work.
 
 # Acknowledgments
 This research is part of the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications.
