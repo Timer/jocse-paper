@@ -299,7 +299,7 @@ Working on this project gave me a massive amount of experience, which far surpas
 I gained experience in professional writing for journal publications and renewed my skills in proofreading.
 I also gained exposure to a whole new aspect of project organization which I was not used to: meetings with advisors, progress reports, and demos.
 I feel like this has really helped foster my professional identity and prepared me more for higher education and the workforce.
-Additionally, I flexed my problem solving skills when implementing the algorithm and begun refactoring. The refactoring had to be done in such a fashion to allow for parallelization. This presented some challenges because there were also memory considerations to make things sharable over the network (MPI).
+Additionally, I flexed my problem solving skills while implementing the algorithm and begun refactoring. The refactoring had to be done in such a fashion to allow for parallelization. This presented some challenges because there were also memory considerations to make things sharable over the network (MPI).
 Overall, I learned many invaluable skills which will be applied to my future education and work.
 
 # Acknowledgments
