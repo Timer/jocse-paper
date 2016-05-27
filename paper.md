@@ -177,9 +177,9 @@ This examination is performed through implementation of the said algorithm, expl
 This paper is an extension to initial analysis performed on the algorithm and explains the thought processes behind the implementation. The preceding publication shows why the algorithm needs to be sped up, as an increase in samples causes linear growth of the problem and introduction of additional genes causes exponential growth of the problem @firstpaper.
 
 ## Bayesian Networks
-Bayesian networks capture qualitative relationships among variables within directed acyclic graphs (or DAGS).
-Nodes within the DAG represent variables, and edges represent dependencies between said variables @korb @pearl.
-Bayesian networks have a search space which grows exponentially when introducing new data and not placing restrictions on the structure of the network.
+Bayesian networks capture qualitative relationships among variables within a directed acyclic graph (or DAG).
+Nodes within the DAG represent variables, and edges represent dependencies between the variables @korb @pearl.
+Bayesian networks have a search space which grows exponentially when introducing new nodes and not placing restrictions on the structure of the network.
 This complication can be overcome by using the K2 algorithm. The K2 algorithm reduces the computational cost of learning by imposing restraints on parent node connections via topological ordering @cooper.
 Restricting the parent ordering, however, creates an issue of bias, which is inherent within a constraint-based search space reduction.
 Sriram @sriram proposed a solution to this issue by creating a consensus network, or the combination of multiple Bayesian networks derived from several topological inputs.
