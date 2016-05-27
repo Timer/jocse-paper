@@ -172,9 +172,9 @@ By eliminating one problem and introducing another, we have enabled the ability 
 Other authors describe parallel implementations that can increase the speed of Bayesian network learning @altekar @misra.
 However, no libraries exist which compute multiple Bayesian networks concurrently.
 This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
-This examination is performed through implementation of said algorithm, utilizing various methods available such as OpenMP, MPI, and CUDA.
+This examination is performed through implementation of the said algorithm, exploring methods available such as OpenMP, MPI, and CUDA.
 
-This paper is an extension to initial analysis performed on the algorithm, and explains the what and how the implementation was done @firstpaper. The preceding publication shows why the algorithm needs to be sped up, as samples causes linear growth of the problem and introduction of genes exponential growth of the problem @firstpaper.
+This paper is an extension to initial analysis performed on the algorithm and explains the thought processes behind the implementation. The preceding publication shows why the algorithm needs to be sped up, as an increase in samples causes linear growth of the problem and introduction of additional genes causes exponential growth of the problem @firstpaper.
 
 ## Bayesian Networks
 Bayesian networks capture qualitative relationships among variables within directed acyclic graphs (or DAGS).
