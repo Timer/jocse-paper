@@ -206,13 +206,13 @@ MPI is most beneficial when parallelizing code across multiple machines. It shou
 CUDA is a parallel computing platform and application programming interface (API) developed by NVIDIA @cudainfo.
 CUDA allows software developers to utilize CUDA-enabled GPUs for general purpose processing (or GPGPU).
 CUDA introduces a concept called kernels, which are extensions of C functions that, when called, are executed in parallel by CUDA threads instead of once like regular C functions @cudaguide.
-The primary use case is when work is **independent** and **many** things need to be done in parallel (e.g. scaling a vector).
-Due to the structure of threads on the GPU, operations such as branches or jumps are *permitted* but **discouraged**. This is because threads run in lockstep and when a branch happens, the branches are executed serially. This means threads are suspended and do not continue execution while the opposite branch is being explored. After the branch completes and the instructions converge, all threads resume running @cudaguide. This has many detrimental performance implications.
+The primary use case is when work is independent and many things need to be done in parallel (e.g. scaling a vector).
+Due to the structure of threads on the GPU, operations such as branches or jumps are permitted but discouraged. This is because threads run in lockstep and when a branch happens, the branches are executed serially. This means threads are suspended and do not continue execution while the opposite branch is being explored. After the branch completes and the instructions converge, all threads resume running @cudaguide. This has many detrimental performance implications.
 Knowing this, the GPU is best suited for vector-operations like scaling or other arithmetic which does not branch.
 The memory for CUDA also resides on the GPU itself, which means before any kernels are executed memory must be copied to the GPU. Memory must then also be copied back to the host machine for use by the CPU @cudaguide. This adds a delay which may invalidate the benefits of CUDA for smaller workloads.
 
 # Methodology
-Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two **16** core AMD processors with **64** GBs of RAM. The XK7 machines consist of a single **16** core AMD processor and a NVIDIA K20X GPU with **32** GBs of RAM @bwinfo.
+Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a NVIDIA K20X GPU with 32 GBs of RAM @bwinfo.
 
 Cray XE6 machines were used to perform all tests utilizing purely synthetic data. OpenMP and MPI were implemented by the Cray Compiler, Cray C version 8.3.10.
 The synthetic data is in the form of a gene-by-sample matrix consisting of the presence or absence of each gene within the sample.
@@ -240,9 +240,9 @@ for (...) { }
 The previous parallelization was reversed as it was determined that parallelizing a single instruction (e.g. multiplication, addition) was detrimental to the scheduling of threads responsible for computing an individual Bayesian network.
 
 To measure the resulting computational runtime decrease, multiple tests were performed with varying number of processors.
-A single set of synthetic data was used which consisted of **10** genes and **10,000** samples.
-Using an exclusively reserved machine, tests were run by varying the number of processors (up to 32) and measuring the algorithm performance for the creation of **160** Bayesian networks per gene (**1600** total).
-We have reached the resource limits on the systems which we have access to, and cannot test beyond **32** cores. The selection of 10 genes and 160 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
+A single set of synthetic data was used which consisted of 10 genes and 10,000 samples.
+Using an exclusively reserved machine, tests were run by varying the number of processors (up to 32) and measuring the algorithm performance for the creation of 160 Bayesian networks per gene 1600 total).
+We have reached the resource limits on the systems which we have access to, and cannot test beyond 32 cores. The selection of 10 genes and 160 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
 ## Machines
 Distributing the work across multiple machines requires different parameters for the code than that of OpenMP.
@@ -272,7 +272,7 @@ topologies = top_d;
 When the machines complete their share of the computation they communicate to coalesce the computed networks into a consensus network.
 The master machine then saves the consensus network to the disk and completes any other required computations which are simple enough not to require being distributed across machines.
 
-Tests are conducted to measure the impact on runtime when multiple machines are used. The same data is used from the `Processors` test. Tests were run on dedicated machines utilizing **16** processors and computing **60** Bayesian networks per gene (**600** total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
+Tests are conducted to measure the impact on runtime when multiple machines are used. The same data is used from the `Processors` test. Tests were run on dedicated machines utilizing 16 processors and computing 60 Bayesian networks per gene (600 total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
 # Results and Discussion
 In the following tables, the standard deviation is represented by the letter `s` and the standard error is denoted by `se`.
@@ -294,7 +294,7 @@ Operations like this are ideal for the GPU as it can perform the arithmetic, wit
 
 ## Machines
 The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. Figure 3 demonstrates that as the number of machines increase, there is much more variation introduced and overhead.
-Observing **64** machines and leading up to **64** machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
+Observing 64 machines and leading up to 64 machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
 It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see Figure 4 for test results.
 
 ![Machine Results Graph](http://puu.sh/p5Xzp/f8b6d6241d.png)
