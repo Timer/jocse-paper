@@ -34,7 +34,7 @@ abstract: |
 references:
   - id: firstpaper
     title: Analysis of Parallel Bayesian Network Learning
-    container-title: "Proceedings of the 31st International Conference on Computers and Their Applications"
+    publisher: "Proceedings of the 31st International Conference on Computers and Their Applications"
     issued:
       year: 2016
       isbn: "978–1–943436–02–6"
@@ -51,7 +51,7 @@ references:
     type: article-journal
   - id: cooper
     title: A Bayesian method for the induction of probabilistic networks from data
-    container-title: Machine Learning
+    publisher: Machine Learning
     issued:
       year: 1992
     volume: 9
@@ -65,7 +65,7 @@ references:
     type: article-journal
   - id: altekar
     title: Parallel metropolis coupled Markov chain Monte Carlo for Bayesian phylogenetic inference
-    container-title: Bioinformatics
+    publisher: Bioinformatics
     issued:
       year: 2004
     volume: 20
@@ -83,7 +83,7 @@ references:
         family: Ronquist
   - id: misra
     title: "Parallel Bayesian network structure learning for genome-scale gene networks"
-    container-title: International Conference for High Performance Computing, Networking, Storage and Analysis
+    publisher: International Conference for High Performance Computing, Networking, Storage and Analysis
     issued:
       year: 2014
     volume: SC14
@@ -110,7 +110,7 @@ references:
     title: Predicting Gene Relations Using Bayesian Networks
     issued:
       year: 2011
-    school: Department of Computer Science, University of Akron
+    publisher: MS thesis, University of Akron
     author:
       - given: Aparna
         family: Sriram
