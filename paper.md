@@ -111,6 +111,7 @@ references:
     issued:
       year: 2011
     publisher: MS thesis, University of Akron
+    URL: "https://etd.ohiolink.edu/pg_10?0::NO:10:P10_ETD_SUBID:47568"
     author:
       - given: Aparna
         family: Sriram
