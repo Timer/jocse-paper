@@ -48,7 +48,7 @@ references:
         family: Duan
       - given: Timothy W.
         family: O’Neil
-    type: article-journal
+    type: article
   - id: cooper
     title: A Bayesian method for the induction of probabilistic networks from data
     publisher: Machine Learning
@@ -62,7 +62,7 @@ references:
         family: Cooper
       - given: Edward
         family: Herskovits
-    type: article-journal
+    type: article
   - id: altekar
     title: Parallel metropolis coupled Markov chain Monte Carlo for Bayesian phylogenetic inference
     publisher: Bioinformatics
@@ -71,7 +71,7 @@ references:
     volume: 20
     issue: 3
     page: 407-415
-    type: article-journal
+    type: article
     author:
       - given: Gautam
         family: Altekar
@@ -88,7 +88,7 @@ references:
       year: 2014
     volume: SC14
     page: 461-472
-    type: article-journal
+    type: article
     author:
       - given: Sanchit
         family: Misra
