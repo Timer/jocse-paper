@@ -25,7 +25,7 @@ author:
     | 302 E Buchtel Ave
     | Akron, OH, 44325, United States
     | duan@uakron.edu
-tags: [Parallel, Processing, OpenMP, MPI, Bayesian, CUDA, Network, Petascale]
+tags: [Parallel, Processing, OpenMP, MPI, Bayesian, CUDA, Network, Petascale, Machine, Learning, Genome]
 abstract: |
   Bayesian networks may be utilized to infer genetic relations among genes. This has proven useful in providing information about how gene interactions influence life.
   However, Bayesian network learning is slow due to the nature of the algorithm. K2, a search space reduction, helps speed up the learning process but may introduce bias. To eliminate this bias, multiple Bayesian networks must be computed.
