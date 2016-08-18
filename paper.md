@@ -32,6 +32,10 @@ abstract: |
   This paper evaluates and realizes parallelization of network generation and the reasoning behind the choices made.
   Methods are developed and tested to evaluate the results of the implemented accelerations. Generating networks across multiple cores results in a linear speed-up with negligible overhead. Distributing the generation of networks across multiple machines also introduces linear speed-up, but results in additional overhead.
 references:
+  - id: sourcecode
+    title: Bayesian Learning source code
+    type: webpage
+    URL: "https://github.com/Timer/bayesian-learning"
   - id: firstpaper
     title: Analysis of Parallel Bayesian Network Learning
     publisher: "Proceedings of the 31st International Conference on Computers and Their Applications"
@@ -218,6 +222,8 @@ Testing was performed on the Blue Waters petascale machine at the University of 
 Cray XE6 machines were used to perform all tests utilizing purely synthetic data. OpenMP and MPI were implemented by the Cray Compiler, Cray C version 8.3.10.
 The synthetic data is in the form of a gene-by-sample matrix consisting of the presence or absence of each gene within the sample.
 Each test was run five times with the mean, standard deviation, and standard error calculated.
+
+The source code of the implementation which is being tested is available online @sourcecode.
 
 ## Processors
 The first natural step in parallelizing computation is to attempt to use multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple threads.
