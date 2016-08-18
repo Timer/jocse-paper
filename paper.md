@@ -223,7 +223,7 @@ Cray XE6 machines were used to perform all tests utilizing purely synthetic data
 The synthetic data is in the form of a gene-by-sample matrix consisting of the presence or absence of each gene within the sample.
 Each test was run five times with the mean, standard deviation, and standard error calculated.
 
-The source code of the implementation which is being tested is available online @sourcecode.
+The library being used to run the tests is available online @sourcecode. This library was implemented as described in this paper.
 
 ## Processors
 The first natural step in parallelizing computation is to attempt to use multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple threads.
