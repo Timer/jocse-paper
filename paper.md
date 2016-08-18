@@ -325,4 +325,4 @@ Further support was provided by a grant from the Choose Ohio First Bioinformatic
 
 The data, statements, and views within this paper are solely the responsibility of the authors.
 
-# References
+\section{References}
