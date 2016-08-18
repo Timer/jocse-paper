@@ -1,6 +1,5 @@
 all: dir pdf html
 
-# Build a number of formats into the `out/` directory. These will get published via Github pages.
 dir:
 	mkdir -p out
 
