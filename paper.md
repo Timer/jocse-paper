@@ -315,6 +315,7 @@ The search space reduction, K2, was a great start but there may still be room to
 The motivation for this is that CUDA has the potential to speed the algorithm up by several orders of magnitude.
 Additionally, the speedup of OpenMP and MPI have limits which we cannot break without exploring CUDA acceleration. As demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see Figure 3.
 
+# Reflections
 Working on this project gave me a massive amount of experience, which far surpassed what I thought it would.
 I gained experience in professional writing for journal publications and renewed my skills in proofreading.
 I also gained exposure to a whole new aspect of project organization which I was not used to: meetings with advisors, progress reports, and demos.
