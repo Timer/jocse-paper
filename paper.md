@@ -30,7 +30,7 @@ abstract: |
   Bayesian networks may be utilized to infer genetic relations among genes. This has proven useful in providing information about how gene interactions influence life.
   However, Bayesian network learning is slow as it is a NP-hard algorithm. K2, a search space reduction, helps speed up the learning process but may introduce bias. The bias arises from the fact that K2 enforces topologies which makes it impossible for subsequent nodes to become parents of previous nodes while the network is built. To eliminate this bias, multiple Bayesian networks must be computed to ensure every node had the chance to be a parent to every other node.
   This paper evaluates and realizes parallelization of network generation and the reasoning behind the choices made.
-  The OpenMP and MPI acceleration are implemented in a single library and can be switched on or off.
+  The OpenMP and MPI acceleration are implemented in a single library and can be switched on or off. These accelerations for computing multiple Bayesian networks simultaneously with no implemented accelerations for the network learning itself.
   Methods are developed and tested to evaluate the results of the implemented accelerations. As a result, generating networks across multiple cores results in a linear speed-up with negligible overhead. Distributing the generation of networks across multiple machines also introduces linear speed-up, but results in additional overhead.
 references:
   - id: sourcecode
@@ -311,7 +311,7 @@ The only thing consistent with the standard error is that it is not consistent.
 
 # Conclusion
 By generating a consensus network out of many Bayesian networks, researchers may screen and infer new gene interactions. This allows researchers to feel more confident about testing hypotheses in the lab, such that their resources and time will not be wasted.
-We have concluded that utilizing parallelization through means of OpenMP and MPI substantially reduces the time to generate a consensus network. This parallelization, however, is computing multiple Bayesian networks simultaneously with no implemented accelerations for the network learning itself.
+We have concluded that utilizing parallelization through means of OpenMP and MPI substantially reduces the time to generate a consensus network.
 The search space reduction, K2, was a great start but there may still be room to improve with CUDA. Future work contains plans to implement the CUDA accelerations for the matrix operations that happen within the Bayesian network learning algorithm, but is significantly more difficult than the OpenMP and MPI implementation.
 The motivation for this is that CUDA has the potential to speed the algorithm up by several orders of magnitude.
 Additionally, the speedup of OpenMP and MPI have limits which we cannot break without exploring CUDA acceleration. As demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see Figure 3.
