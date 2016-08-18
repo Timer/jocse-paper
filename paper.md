@@ -25,7 +25,7 @@ author:
     | 302 E Buchtel Ave
     | Akron, OH, 44325, United States
     | duan@uakron.edu
-tags: [Parallel, Processing, OpenMP, MPI, Bayesian, CUDA, Network, Petascale, Machine, Learning, Genome]
+tags: [Parallel, Processing, OpenMP, MPI, Bayesian, Network, Petascale, Machine, Learning, Genome]
 abstract: |
   Bayesian networks may be utilized to infer genetic relations among genes. This has proven useful in providing information about how gene interactions influence life.
   However, Bayesian network learning is slow as it is a NP-hard algorithm. K2, a search space reduction, helps speed up the learning process but may introduce bias. The bias arises from the fact that K2 enforces topologies which makes it impossible for subsequent nodes to become parents of previous nodes while the network is built. To eliminate this bias, multiple Bayesian networks must be computed to ensure every node had the chance to be a parent to every other node.
@@ -171,7 +171,7 @@ By eliminating one problem and introducing another, we have enabled the ability 
 Other authors describe parallel implementations that can increase the speed of Bayesian network learning @altekar @misra.
 However, no libraries exist which compute multiple Bayesian networks concurrently.
 This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
-This examination is performed through implementation of the said algorithm, exploring methods available such as OpenMP, MPI, and CUDA.
+This examination is performed through implementation of the said algorithm, exploring methods available such as OpenMP and MPI.
 
 This paper is an extension to initial analysis performed on the algorithm and explains the thought processes behind the implementation. The preceding publication shows why the algorithm needs to be sped up, as an increase in samples causes linear growth of the problem and introduction of additional genes causes exponential growth of the problem @firstpaper.
 
