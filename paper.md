@@ -28,7 +28,7 @@ author:
 tags: [Parallel, Processing, OpenMP, MPI, Bayesian, CUDA, Network, Petascale, Machine, Learning, Genome]
 abstract: |
   Bayesian networks may be utilized to infer genetic relations among genes. This has proven useful in providing information about how gene interactions influence life.
-  However, Bayesian network learning is slow due to the nature of the algorithm. K2, a search space reduction, helps speed up the learning process but may introduce bias. To eliminate this bias, multiple Bayesian networks must be computed.
+  However, Bayesian network learning is slow as it is a NP-hard algorithm. K2, a search space reduction, helps speed up the learning process but may introduce bias. The bias arises from the fact that K2 enforces topologies which makes it impossible for subsequent nodes to become parents of previous nodes while the network is built. To eliminate this bias, multiple Bayesian networks must be computed to ensure every node had the chance to be a parent to every other node.
   This paper evaluates and realizes parallelization of network generation and the reasoning behind the choices made.
   Methods are developed and tested to evaluate the results of the implemented accelerations. Generating networks across multiple cores results in a linear speed-up with negligible overhead. Distributing the generation of networks across multiple machines also introduces linear speed-up, but results in additional overhead.
 references:
