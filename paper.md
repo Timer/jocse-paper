@@ -176,7 +176,11 @@ However, no libraries exist which compute multiple Bayesian networks concurrentl
 This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
 This examination is performed through implementation of the said algorithm, exploring methods available such as OpenMP and MPI.
 
+Results from running experiments with varying number of cores and machines are examined and found to have a positive impact. There is a couple caveats, however, such as the over provisioning of resources which leads to waste and potential introduction of latency.
+When the resources are appropriate for the problem size, OpenMP and MPI substantially reduce the time to generate a consensus network. The reduction in runtime appears to be linear, more so after accounting for latency.
+
 This paper is an extension to initial analysis performed on the algorithm and explains the thought processes behind the implementation. The preceding publication shows why the algorithm needs to be sped up, as an increase in samples causes linear growth of the problem and introduction of additional genes causes exponential growth of the problem @firstpaper.
+After finishing this paper, the reader should have a sense of why and how the parallelization was reasoned about and implemented to achieve optimal efficiency.
 
 # Background
 ## Bayesian Networks
