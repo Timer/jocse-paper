@@ -219,20 +219,19 @@ The library being used to run the tests is available online @sourcecode. This li
 
 ## Processors
 The first natural step in parallelizing computation is to attempt to use multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple threads.
-Analyzing the program reveals a handful of potential places for parallelization. There are many loops which perform actions which are independent from one another, such as matrix calculations.
-Operations like these tend to lend themselves best to CUDA, however, due to the way the matrices are architected, CUDA can not be applied. Matrices in the program consist of a 2-dimensional array of pointers instead of a primitive data type. Because of this, each pointer must be resolved before being copied to the CUDA card which effectively removes all the benefit of using CUDA in the first place.
-This problem could be mitigated by storing the matrices as a 2-dimensional array of a primitive data type, however, would require substantial refactoring of the program and its functionality. This refactoring would require resources which exceed that of which were allocated for this research.
-Since CUDA can not be utilized, OpenMP and MPI are the remaining two options. MPI does not lend itself well to this problem because these operations are being acted upon memory which is specific to the machine running the program and would introduce unnecessary overhead and network communications. MPI could potentially speed up the program, but does so in an expensive fashion.
-OpenMP, however, would work perfectly for this use case. OpenMP was implemented with a simple compiler directive which sped up computation.
+Analyzing the program reveals a couple potential places for parallelization. There are many loops which perform actions which are independent from one another.
+The loops identified for inspection are the generation of topologies and the iteration over the topologies to generate networks.
+
+The generation of topologies results in a a predetermined number of topologies filled into an array. This operation can be easily parallelized across multiple cores as they are independent.
+The appropriate tool to perform this parallelization is OpenMP. OpenMP was implemented with a simple compiler directive which sped up computation.
 ```c++
 #pragma omp parallel for
 for (...) { }
 ```
-Additionally, other opportunities were inspected for parallelization. The next one which jumped out was the creation of a network for each individual topology.
-The creation of Bayesian networks are independent from one another, and thus, networks can be asynchronously generated on the same data set.
-CUDA does not lend itself well to this use case because it is not performing strictly arithmetic operations. Similar to above, using MPI would be a waste of resources which leaves the best candidate again being OpenMP.
+
+Iterating over the topologies to generate networks can also be parallelized.
+The creation of Bayesian networks are independent from one another, and thus, networks can be asynchronously generated.
 Implementation of this parallelization is straight-forward as Bayesian network computation does not mutate its data set. This prevents us from having to replicate the memory and increase the space complexity of the algorithm. OpenMP was implemented again as shown above.
-The previous parallelization was reversed as it was determined that parallelizing a single instruction (e.g. multiplication, addition) was detrimental to the scheduling of threads responsible for computing an individual Bayesian network.
 
 To measure the resulting computational runtime decrease, multiple tests were performed with varying number of processors.
 A single set of synthetic data was used which consisted of 10 genes and 10,000 samples.
