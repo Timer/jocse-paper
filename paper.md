@@ -252,7 +252,7 @@ MPI is optimal for this situation as it allows machines to send messages back an
 Distributing the Bayesian network learning process across multiple machines doesn't make much sense because each step is dependent on the previous, so the result would be a slower computation since calculations couldn't happen in parallel and there would be added network latency.
 The main candidate for distribution would be the computation of a Bayesian network (or the iteration over the topologies), because networks are computed independent of one another and there is a large backlog of networks which need to be computed.
 Distributing the work with MPI is surprisingly simple, as the topologies are randomly generated. This means there is no communication required prior to beginning computation.
-Upon initialization, each machine must determine its rank and role by augmenting the parameters, this may be done like so.
+Upon initialization, each machine must determine its rank and role by augmenting the arguments, this may be done like so.
 ```c
 int main(int argc, char **argv) {
   int forkIndex = 0, forkSize = 1;
