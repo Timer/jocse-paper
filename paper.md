@@ -284,16 +284,21 @@ Figure 1 illustrates that as the number of processors increase, the runtime decr
 
 ![Processor Results Graph](http://puu.sh/p5XtT/305ea28995.png)
 
-| Cores | Mean Time | *s* | *se* |
-| --- | --- | --- | --- |
-| 1 | 396.348 | 3.192 | 1.427 |
-| 2 | 269.023 | 0.530 | 0.237 |
-| 4 | 137.359 | 0.629 | 0.281 |
-| 8 | 76.169 | 0.220 | 0.090 |
-| 16 | 40.359 | 0.307 | 0.137 |
-| 32 | 22.172 | 0.144 | 0.064 |
-
-: Processor Results Data
+\begin{table}[ht]
+\centering
+\caption{Processor Results Data}
+\label{procs_table}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Cores} & \textbf{Mean Time} & \textbf{\textit{s}} & \textbf{\textit{se}} \\ \hline
+1 & 396.348 & 3.192 & 1.427 \\ \hline
+2 & 269.023 & 0.530 & 0.237 \\ \hline
+4 & 137.359 & 0.629 & 0.281 \\ \hline
+8 & 76.169 & 0.220 & 0.090 \\ \hline
+16 & 40.359 & 0.307 & 0.137 \\ \hline
+32 & 22.172 & 0.144 & 0.064 \\ \hline
+\end{tabular}
+\end{table}
 
 This linear decrease is consistent with how OpenMP distributes its work. OpenMP distributes the task of an independent Bayesian network computation across multiple threads simultaneously. These independent tasks are not blocking and do not lock one another, and thus have very little contention. There is one lock after each computation which appends the network to the consensus network, but is negligible to the total time taken to compute the Bayesian networks.
 OpenMP results in such low standard error because it works with memory within the program and requires no network communication like MPI. The reduction of standard error as the number of threads increase may be due to the kernel. The kernel is responsible for scheduling threads and ensuring other work on the system gets done. The increase in threads means there are more threads which may go uninterrupted by the kernel scheduling something from the operating system.
@@ -309,21 +314,26 @@ It is important to note that an increase in resources does not necessarily mean 
 
 ![Machine Results Graph](http://puu.sh/p5Xzp/f8b6d6241d.png)
 
-| Nodes | Mean Time | *s* | *se* |
-| --- | --- | --- | --- |
-| 1 | 102.204 | 0.361 | 0.161 |
-| 2 | 53.451 | 0.272 | 0.122 |
-| 4 | 28.656 | 0.383 | 0.171 |
-| 8 | 17.8 | 1.812 | 0.810 |
-| 16 | 10.917 | 0.327 | 0.134 |
-| 32 | 7.862 | 0.462 | 0.207 |
-| 64 | 6.259 | 0.444 | 0.198 |
-| 128 | 6.739 | 0.430 | 0.193 |
-| 256 | 7.904 | 1.110 | 0.496 |
-| 512 | 7.241 | 0.246 | 0.110 |
-| 1024 | 8.845 | 1.105 | 0.494 |
-
-: Machine Results Data
+\begin{table}[ht]
+\centering
+\caption{Machine Results Data}
+\label{nodes_table}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Nodes} & \textbf{Mean Time} & \textbf{\textit{s}} & \textbf{\textit{se}} \\ \hline
+1 & 102.204 & 0.361 & 0.161 \\ \hline
+2 & 53.451 & 0.272 & 0.122 \\ \hline
+4 & 28.656 & 0.383 & 0.171 \\ \hline
+8 & 17.8 & 1.812 & 0.810 \\ \hline
+16 & 10.917 & 0.327 & 0.134 \\ \hline
+32 & 7.862 & 0.462 & 0.207 \\ \hline
+64 & 6.259 & 0.444 & 0.198 \\ \hline
+128 & 6.739 & 0.430 & 0.193 \\ \hline
+256 & 7.904 & 1.110 & 0.496 \\ \hline
+512 & 7.241 & 0.246 & 0.110 \\ \hline
+1024 & 8.845 & 1.105 & 0.494 \\ \hline
+\end{tabular}
+\end{table}
 
 The standard error generally increases with the increase in machines, but this is not always true. There does not seem to be a correlation between an increase or decrease in machines with an increase or decrease in standard error, except for the general rule stated above.
 This is consistent with the fact that networks are very unpredictable. Pings may vary wildly depending on other network traffic and the route which packets decide to take. Additionally, there may be other noisy peers on the network hogging bandwidth and causing slower transmissions. On clusters across the world wide web, traffic may have to travel through geographical displacement and suffer packet loss or increases in latency.
