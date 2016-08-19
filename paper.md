@@ -246,11 +246,11 @@ Using an exclusively reserved machine, tests were run by varying the number of p
 We have reached the resource limits on the systems which we have access to, and cannot test beyond 32 cores. The selection of 10 genes and 160 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
 ## Machines
-Distributing the work across multiple machines requires different parameters for the code than that of OpenMP.
+Distributing work across multiple machines requires a different approach than that of OpenMP.
 OpenMP cannot share memory across machines so it cannot be applied to this situation.
-MPI is the prime candidate for this situation as it allows machines to send messages back and forth to share memory and communicate their responsibilities and results.
+MPI is optimal for this situation as it allows machines to send messages back and forth to share memory and communicate their responsibilities and results.
 Distributing the Bayesian network learning process across multiple machines doesn't make much sense because each step is dependent on the previous, so the result would be a slower computation since calculations couldn't happen in parallel and there would be added network latency.
-The main candidate for distribution would be the computation of multiple Bayesian networks, because networks are computed independent of one another and there is a large backlog of networks which need computed.
+The main candidate for distribution would be the computation of a Bayesian network (or the iteration over the topologies), because networks are computed independent of one another and there is a large backlog of networks which need to be computed.
 Distributing the work with MPI is surprisingly simple, as the topologies are randomly generated. This means there is no communication required prior to beginning computation.
 Upon initialization, each machine must determine its rank and role by augmenting the parameters, this may be done like so.
 ```c
