@@ -207,9 +207,12 @@ OpenMP, by nature allows simple and straight-forward parallelization of loops wi
 Without OpenMP, the program would have to include many different libraries and routines to achieve parallel code across different systems. The result of this would be a program which only works on a specific set of machines, or a code base which is hard to maintain and debug when changes are made to the underlying algorithm.
 
 ## MPI
-MPI (or **M**essage **P**assing **I**nterface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. The execution of a program which implements MPI must be orchestrated by an executor. The executor forwards appropriate arguments to each machine's program in order to specify the methods for the machines to talk to one another. The MPI library is used to augment the program arguments upon execution and restore the arguments to what was forwarded to the program traditionally. The augmented arguments are then used to determine rank/role through a clean API and lays the foundation to share memory between the machines.
-Fault tolerance and concurrency are implemented by the user on a per-case basis, as message sending and receiving is either blocking or asynchronous @mpispec.
-MPI is most beneficial when parallelizing code across multiple machines. It should be avoided for spanning computation across multiple cores because it introduces networking overhead which is unnecessary when a solution such as OpenMP should be used.
+MPI (or Message Passing Interface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. MPI enables executing programs across multiple machines in a cluster and passing messages between them to schedule work or share information.
+
+Executing a program which utilizes MPI is most often performed with a tool.
+This tool is responsible for forwarding appropriate parameters to each program in order to specify the information required for the processes to communicate.
+Upon program start, the MPI execution environment must be initialized using the MPI library methods @mpispec.
+The initialization sequence typically results in augmented program arguments (to remove arguments passed by the execution tool) and the rank of the program in the MPI environment @mpispec.
 
 # Methodology
 Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a NVIDIA K20X GPU with 32 GBs of RAM @bwinfo.
