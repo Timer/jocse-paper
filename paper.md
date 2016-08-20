@@ -28,11 +28,11 @@ author:
 tags: [Parallel, Processing, OpenMP, MPI, Bayesian, Network, Petascale, Machine, Learning, Genome]
 abstract: |
   Bayesian networks may be utilized to infer genetic relations among genes. This has proven useful in providing information about how gene interactions influence life.
-  However, Bayesian network learning is slow as it is an NP-hard algorithm. K2, a search space reduction, helps speed up the algorithm but may introduce bias. The bias arises from the fact that K2 enforces topologies which makes it impossible for subsequent nodes to become parents of previous nodes while the network is built. To eliminate this bias, multiple Bayesian networks must be computed to ensure every node has the chance to be a parent to every other node.
+  However, Bayesian network learning is slow as it is an NP-hard algorithm. K2, a search space reduction, helps speed up the algorithm but may introduce bias. The bias arises from the fact that K2 enforces topologies which makes it impossible for subsequent nodes to become parents of previous nodes while the algorithm builds the network. To eliminate this bias, multiple Bayesian networks must be computed to ensure every node has the chance to be a parent to every other node.
   The purpose of this paper is to propose a hybrid algorithm for generating consensus networks utilizing OpenMP and MPI.
   This paper evaluates the parallelization of network generation and provides commentary on learning and implementing OpenMP and MPI.
   The OpenMP and MPI accelerations are implemented in a single library and can be switched on or off. These accelerations are for computing multiple Bayesian networks simultaneously.
-  Methods are developed and tested to evaluate the results of the implemented accelerations. As a result, generating networks across multiple cores results in a linear speed-up with negligible overhead. Distributing the generation of networks across multiple machines also introduces linear speed-up, but results in additional overhead.
+  Methods are developed and tested to evaluate the results of the implemented accelerations. The results show generating networks across multiple cores results in a linear speed-up with negligible overhead. Distributing the generation of networks across multiple machines also introduces linear speed-up, but results in additional overhead.
 references:
   - id: sourcecode
     title: Bayesian Learning source code
