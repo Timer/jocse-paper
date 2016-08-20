@@ -209,7 +209,7 @@ Without OpenMP, the program would have to include many different libraries and r
 ## MPI
 MPI (or Message Passing Interface) is a standard which outlines network-routed (a)synchronous communication between machines @mpispec. MPI enables executing programs across multiple machines in a cluster and passing messages between them to schedule work or share information.
 
-Executing a program which utilizes MPI is most often performed with a tool.
+Execution of a program which utilizes MPI is most often performed with a tool.
 This tool is responsible for forwarding appropriate parameters to each program in order to specify the information required for the processes to communicate.
 Upon program start, the MPI execution environment must be initialized using the MPI library methods @mpispec.
 The initialization sequence typically results in augmented program arguments (to remove arguments passed by the execution tool) and the rank of the program in the MPI environment @mpispec.
