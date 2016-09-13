@@ -317,6 +317,7 @@ The resulting runtime decrease also appears to be linear while increasing the nu
 Observing 64 machines and leading up to 64 machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing.
 This increase in runtime happens when the inflection point has been reached for the given set of data.
 At some point, it takes longer to send the data over the network than it would be to simply compute more data on fewer machines.
+There are some potential modifications which can be made to mitigate this overhead (such as asynchronous coalescing), but it cannot be eliminated completely.
 It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see Table 2 for test results.
 
 ![Illustrates runtime decrease as the number of machines increase. The decline is nearly linear.](https://puu.sh/qH0MG/5a05712a80.png)
