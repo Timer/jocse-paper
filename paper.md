@@ -170,7 +170,7 @@ Bayesian network learning, however, is inherently slow because it is an NP-hard 
 K2 is a great example of a search space reduction algorithm, but introduces a new problem. K2 restricts the parent hierarchy of genes within the network @cooper, and thus introduces bias in the computed relations @sriram.
 To achieve high confidence in the generated networks, an abundance of Bayesian networks need to be computed using random search space restrictions. These random search space restrictions (or topologies) remove the bias and provide results which can be interpreted at various levels of confidence.
 
-By eliminating one problem and introducing another, we have enabled the ability of parallelization by requiring multiple units of work rather than just one faster unit of work.
+By eliminating one problem and introducing another, consensus networks enable the ability of parallelization by requiring multiple units of work rather than just one faster unit of work.
 Other authors describe parallel implementations that can increase the speed of Bayesian network learning @altekar @misra.
 However, no libraries exist which compute multiple Bayesian networks concurrently.
 This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
