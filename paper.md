@@ -219,6 +219,8 @@ Testing was performed on the Blue Waters petascale machine at the University of 
 
 Cray XE6 machines were used to perform all tests utilizing purely synthetic data. OpenMP and MPI were implemented by the Cray Compiler, Cray C version 8.3.10.
 The synthetic data is in the form of a gene-by-sample matrix consisting of the presence or absence of each gene within the sample.
+This data was generated according to a model we defined.
+We then ensured the result of the consensus network(s) matched our model to validate functionality and evaluate a degree of correctness for our algorithm.
 Each test was run five times with the mean, standard deviation, and standard error calculated.
 
 The library being used to run the tests is available online @sourcecode. This library was implemented as described in this paper.
