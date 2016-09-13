@@ -313,7 +313,10 @@ The reduction of standard error as the number of threads increase may be due to 
 
 ## Cluster Parallelism
 The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. Figure 2 demonstrates that as the number of machines increase, there is much more variation introduced and overhead in the runtime.
-Observing 64 machines and leading up to 64 machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing. This increase in runtime happens when the inflection point has been reached for the given set of data. At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
+
+Observing 64 machines and leading up to 64 machines, it can be noted that the reduction in runtime becomes less and less and then starts increasing.
+This increase in runtime happens when the inflection point has been reached for the given set of data.
+At some point, it takes longer to send the data over the network than it would be to simply compute more data on less machines.
 It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see Table 2 for test results.
 
 ![Illustrates runtime decrease as the number of machines increase. The decline is nearly linear.](https://puu.sh/qH0MG/5a05712a80.png)
