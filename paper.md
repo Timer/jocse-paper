@@ -314,7 +314,7 @@ Figure 1 illustrates that as the number of processors increase, the runtime decr
 
 This linear decrease is consistent with how OpenMP distributes its work. OpenMP distributes the task of an independent Bayesian network computation across multiple threads simultaneously. These independent tasks are non-blocking and do not lock one another, and thus have very little contention. There is one lock after each computation which appends the network to the consensus network, but is negligible to the total time taken to compute the Bayesian networks.
 OpenMP results in such low runtime standard error because it works with memory within the program and requires no network communication like MPI.
-The reduction of standard error as the number of threads increase may be due to the kernel. The kernel is responsible for scheduling threads and ensuring other work on the system gets done. The increase in threads means there are more threads which may go uninterrupted by the kernel scheduling something from the operating system.
+The reduction of standard error as the number of threads increase may be due to the kernel. The kernel is responsible for scheduling threads and ensuring other work on the system gets done. The increase in threads means there are more threads which may go uninterrupted by the kernel scheduling something else from the operating system.
 
 ## Cluster Parallelism
 The resulting runtime decrease also appears to be linear while increasing the number of machines. However, as the number of machines increase, overhead also increases. Figure 2 demonstrates that as the number of machines increase, there is much more variation introduced and overhead in the runtime.
