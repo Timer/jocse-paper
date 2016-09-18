@@ -230,8 +230,8 @@ The library being used to run the tests is available online @sourcecode. This li
 
 ## Processors
 The first natural step in parallelizing computation is to attempt to use multiple cores (or threads) simultaneously on the machine. This can be done by running multiple instances of the program, or by implementing code which takes advantage of multiple threads.
-Analyzing the program reveals a couple potential places for parallelization. There are many loops which perform actions which are independent from one another.
-The loops identified for inspection are the generation of topologies and the iteration over the topologies to generate networks.
+Analyzing the program reveals a couple potential places for parallelization. There are many for-loops which perform actions which are independent from one another.
+The for-loops identified for inspection are the generation of topologies and the iteration over the topologies to generate networks.
 
 The generation of topologies results in a a predetermined number of topologies filled into an array. This operation can be easily parallelized across multiple cores as they are independent.
 The appropriate tool to perform this parallelization is OpenMP. OpenMP was implemented with a simple compiler directive which sped up computation.
