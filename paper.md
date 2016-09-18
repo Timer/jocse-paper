@@ -215,7 +215,7 @@ MPI (or Message Passing Interface) is a standard which outlines network-routed (
 Execution of a program which utilizes MPI is most often performed with a tool.
 This tool is responsible for forwarding appropriate parameters to each program in order to specify the information required for the processes to communicate.
 Upon program start, the MPI execution environment must be initialized using the MPI library methods @mpispec.
-The initialization sequence typically results in augmented program arguments (to remove arguments passed by the execution tool) and the rank of the program in the MPI environment @mpispec.
+The initialization sequence results in augmented program arguments (to remove arguments passed by the execution tool) and the rank of the program in the MPI environment @mpispec. This information allows the program to proceed as normal while being a small part in a larger sum.
 
 # Methodology
 Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a NVIDIA K20X GPU with 32 GBs of RAM @bwinfo.
