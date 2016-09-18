@@ -354,6 +354,11 @@ By generating a consensus network out of many Bayesian networks, researchers may
 
 We have concluded that utilizing parallelization through means of OpenMP and MPI substantially reduces the time to generate a consensus network. However, as demonstrated in the graphs above, an increase in resources must be tailored to the problem at hand. Increasing the resources too significantly becomes detrimental, resulting in costly waste; see Table 2.
 
+Future work may involve parallelizing the coalescing of consensus networks in effort to reduce the overhead introduced when increasing cluster parallelism.
+Additionally, all matrix operations are currently done on a single-thread. These operations (in some cases) contain thousands of rows and columns being applied to an expensive mathematical function.
+These operations are ideal for the GPU as it can perform the arithmetic across several thousand of threads simultaneously.
+As such, the motivation for this is that CUDA (or other means of GPGPU acceleration) has the potential to speed the algorithm up by several orders of magnitude.
+
 # Reflections
 Working on this project gave me a massive amount of experience, which far surpassed what I thought it would.
 I gained experience in professional writing for journal publications and renewed my skills in proofreading.
