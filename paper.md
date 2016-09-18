@@ -218,7 +218,7 @@ Upon program start, the MPI execution environment must be initialized using the 
 The initialization sequence results in augmented program arguments (to remove arguments passed by the execution tool) and the rank of the program in the MPI environment @mpispec. This information allows the program to proceed as normal while being a small part in a larger sum.
 
 # Methodology
-Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor and a NVIDIA K20X GPU with 32 GBs of RAM @bwinfo.
+Testing was performed on the Blue Waters petascale machine at the University of Illinois at Urbana-Champaign. The facility is maintained by Cray and consists of 22,640 Cray XE6 machines and 3,072 XK7 machines, which are CPU-only and GPU-accelerated machines respectively. The XE6 machines consist of two 16 core AMD processors with 64 GBs of RAM. The XK7 machines consist of a single 16 core AMD processor with 32 GBs of RAM and a NVIDIA K20X GPU @bwinfo.
 
 Cray XE6 machines were used to perform all tests utilizing purely synthetic data. OpenMP and MPI were implemented by the Cray Compiler, Cray C version 8.3.10.
 The synthetic data is in the form of a gene-by-sample matrix consisting of the presence or absence of each gene within the sample.
