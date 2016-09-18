@@ -369,7 +369,7 @@ I also gained exposure to a whole new aspect of project organization which I was
 I feel like this has really helped foster my professional identity and prepared me more for higher education and the workforce.
 Additionally, I flexed my problem solving skills while implementing the algorithm and begun refactoring. The refactoring had to be done in such a fashion to allow for parallelization. This presented some challenges because there were also memory considerations to make things sharable over the network (MPI).
 Overall, I learned many invaluable skills which will be applied to my future education and work.
-Notably, I performed my first publication @firstpaper and gave a presentation at the associated conference, then presented a poster version of the paper at GLBIO 2016 to draw attention to the work.
+Notably, I performed my first publication @firstpaper and gave a presentation at the associated conference, then proceeded to present a poster version of the paper at GLBIO 2016 to draw attention to the work.
 
 # Acknowledgments
 This research is part of the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications.
