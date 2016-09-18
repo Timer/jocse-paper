@@ -163,11 +163,11 @@ references:
 
 # Introduction
 Inferring relations among genes requires a significant amount of data.
-Bayesian networks may be used to correlate this data and extract relationships among the genes @sriram. We do not know what this relationship is, but we know it has a high likelihood of existing.
+Bayesian networks may be used to correlate this data and extract relationships among the genes @sriram. We do not know what this relationship is, but we do know it has a high likelihood of existing.
 These relationships can then be used to make testable hypotheses to determine how gene interactions influence life in organisms or humans. As a result, tests can be performed in the lab with more confidence and a reduced chance of wasting time and resources.
 
 This concept has been applied to smaller data sets and shows promising results @sriram, however remains too slow to be applied to a larger problem.
-It is our objective to decrease the runtime required to form a network, which may reveal genetic interactions.
+It is our objective to decrease the runtime required to form a network which may reveal genetic interactions.
 Bayesian network learning, however, is inherently slow because it is an NP-hard algorithm @cooper.
 Search space reduction algorithms may be utilized to reduce the computational complexity.
 K2 is a great example of a search space reduction algorithm, and is our algorithm of choice. However, it introduces a new problem. K2 restricts the parent hierarchy of genes within the network @cooper, and thus introduces bias in the computed relations.
@@ -179,11 +179,11 @@ However, no libraries exist which compute multiple Bayesian networks concurrentl
 This project examines the value of Bayesian network learning within a parallel environment in order to reduce the time needed to generate consensus networks using many topological inputs.
 This examination is performed through implementation of the said algorithm, exploring methods available such as OpenMP and MPI.
 
-Results from running experiments with varying number of cores and machines are examined and found to have a positive impact. There is a couple caveats, however, such as the over provisioning of resources which leads to waste and potential introduction of latency.
-When the resources are appropriate for the problem size, OpenMP and MPI substantially reduce the time to generate a consensus network. The reduction in runtime appears to be linear, more so after accounting for latency.
+Results from running experiments with varying number of cores and machines are examined and it is found our parallelization has a positive impact. There are a couple caveats, however, such as the over provisioning of resources which leads to waste and potential introduction of latency from cluster parallelism.
+When the resources are appropriate for the problem size, OpenMP and MPI substantially reduce the time to generate a consensus network. The reduction in runtime appears to be linear, more so after accounting for introduced latency and overhead.
 
-This paper is an extension to initial analysis performed on the algorithm and explains the thought processes behind the implementation. The preceding publication shows why the algorithm needs to be sped up, as an increase in samples causes linear growth of the problem and introduction of additional genes causes exponential growth of the problem @firstpaper.
-After finishing this paper, the reader should have a sense of why and how the parallelization was reasoned about and implemented to achieve optimal efficiency.
+This paper is an extension to the initial analysis performed on the algorithm and explains the thought processes behind the implementation. The preceding publication shows why the algorithm needs to be sped up, as an increase in samples causes linear growth of the problem and introduction of additional genes causes exponential growth of the problem @firstpaper.
+After reading this paper, the reader should have a sense of why and how the parallelization was reasoned about and implemented to achieve optimal efficiency.
 
 # Background
 ## Bayesian Networks
