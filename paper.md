@@ -284,7 +284,7 @@ topologies = top_d;
 When the machines complete their share of the computation they communicate to coalesce the computed networks into a consensus network.
 The master machine then saves the consensus network to the disk and completes any other required computations which are simple enough not to require being distributed across machines.
 
-Tests are conducted to measure the impact on runtime when multiple machines are used. The same data is used from the `Processors` test. Tests were run on dedicated machines utilizing 16 processors and computing 60 Bayesian networks per gene (600 total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
+Tests are conducted to measure the impact on runtime when multiple machines are used. The same data is used from the above (processors) test. Tests were run on dedicated machines utilizing 16 processors and computing 60 Bayesian networks per gene (600 total). The selection of 10 genes and 60 Bayesian networks was arbitrarily chosen as sufficient means to measure computation time.
 
 # Results and Discussion
 In the following tables, the standard deviation is represented by the letter `s` and the standard error is denoted by `se`.
