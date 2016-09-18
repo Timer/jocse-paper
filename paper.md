@@ -164,8 +164,10 @@ references:
 # Introduction
 Inferring relations among genes requires a significant amount of data.
 Bayesian networks may be used to correlate this data and extract relationships among the genes @sriram. We do not know what this relationship is, but we know it has a high likelihood of existing.
-These interactions can then be used to make testable hypotheses to determine how gene interactions influence life in organisms or humans. As a result, tests can be performed in the lab with more confidence and a reduced chance of wasting time and resources.
+These relationships can then be used to make testable hypotheses to determine how gene interactions influence life in organisms or humans. As a result, tests can be performed in the lab with more confidence and a reduced chance of wasting time and resources.
 
+This concept has been applied to smaller data sets and shows promising results @sriram, however remains too slow to be applied to a larger problem.
+It is our objective to decrease the runtime required to form a network, which may reveal genetic interactions.
 Bayesian network learning, however, is inherently slow because it is an NP-hard algorithm @cooper.
 Search space reduction algorithms may be utilized to reduce the computational complexity.
 K2 is a great example of a search space reduction algorithm, and is our algorithm of choice. However, it introduces a new problem. K2 restricts the parent hierarchy of genes within the network @cooper, and thus introduces bias in the computed relations.
