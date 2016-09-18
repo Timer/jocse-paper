@@ -199,7 +199,7 @@ To eliminate the bias created by these restraints, many randomly generated topol
 ## OpenMP
 OpenMP or (Open Multi-Processing) is a cross-platform, multilingual application programming interface (API) which enables shared-memory parallel programming on a single machine.
 The OpenMP specification consists of compiler directives and library functions used to parallelize portions of a program's control flow @openmpapi.
-The most rudimentary example of OpenMP would be to distribute a loop across multiple threads.
+The most rudimentary example of OpenMP would be to distribute a for-loop across multiple threads.
 
 An advisory board of top entities in computation controls its specification @openmpboard which can be implemented by various compilers to target specific system capabilities and architectures.
 The specification includes language-specific APIs, compiler directives, and standardized environment variables @openmpapi.
