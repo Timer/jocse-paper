@@ -1,5 +1,5 @@
 ---
-title: "STUDENT PAPER: An Implementation of Parallel Bayesian Network Learning"
+title: "An Implementation of Parallel Bayesian Network Learning"
 author:
   - |
     | Joseph S. Haddad
