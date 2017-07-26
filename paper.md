@@ -294,7 +294,7 @@ This standard deviation and error is in regards to the algorithm runtime, not th
 When increasing the number of processors, the resulting runtime decrease appears to be linear. The linear nature of the results removes the necessity for further testing between the number of cores tested.
 Figure 1 illustrates that as the number of processors increase, the runtime decreases at approximately the same rate. Exact results may be seen in Table 1.
 
-![Illustrates runtime decrease as the number of processors increase. The decline is nearly linear.](https://puu.sh/qH05S/2838bb28d0.png)
+![Illustrates runtime decrease as the number of processors increase. The decline is nearly linear.](https://storage.googleapis.com/worker-binaries/processors.png)
 
 \begin{table}[ht]
 \centering
@@ -325,7 +325,7 @@ At some point, it takes longer to send the data over the network than it would b
 There are some potential modifications which can be made to mitigate this overhead (such as asynchronous coalescing), but it cannot be eliminated completely.
 It is important to note that an increase in resources does not necessarily mean an increase in performance, nor always one for one; see Table 2 for test results.
 
-![Illustrates runtime decrease as the number of machines increase. The decline is nearly linear.](https://puu.sh/qH0MG/5a05712a80.png)
+![Illustrates runtime decrease as the number of machines increase. The decline is nearly linear.](https://storage.googleapis.com/worker-binaries/machines.png)
 
 \begin{table}[ht]
 \centering
